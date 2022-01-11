@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,46 +23,63 @@ namespace FMSWindows.UserControls
             passwordEmptyLabel.Hide();
         }
 
-        private void siticoneButton1_Click(object sender, EventArgs e)
+        private async void siticoneButton1_Click(object sender, EventArgs e)
         {
+            siticoneButton1.Enabled = false;
             AuthService authService = new AuthService();
 
             if (ValidateFields())
             {
-                var response = authService.Login(siticoneTextBox1.Text, siticoneTextBox2.Text);
-                var deserializeJson = JsonConvert.DeserializeObject(response);
-
-                if (deserializeJson != null && deserializeJson.ToString().Contains("true"))
+                try
                 {
-                    var successObject = JsonConvert.DeserializeObject<SingleResponseModel<TokenModel>>(response);
-                    foreach (var operationClaim in successObject.Data.OperationClaims)
-                    {
-                        if (operationClaim.Name.Contains("admin") || operationClaim.Name.Contains("user"))
-                        {
-                            MessageBox.Show(successObject.Message, @"Success");
-                            Form1.Instance.Hide();
-                            DashboardForm dashboardForm = new DashboardForm();
-                            dashboardForm.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show(@"You don't have permissions to login admin panel!", $"Error");
-                            return;
-                        }
+                    var response = await authService.Login(siticoneTextBox1.Text, siticoneTextBox2.Text);
 
+                    if (response.Success)
+                    {
+                        foreach (var operationClaim in response.Data.OperationClaims)
+                        {
+                            if (operationClaim.Name.Contains("admin") || operationClaim.Name.Contains("user"))
+                            {
+                                MessageBox.Show(response.Message, @"Success");
+                                Program.Jwt = response.Data.Token;
+                                Program.Id = response.Data.Id;
+                                Program.SecurityKey = response.Data.SecurityKey;
+
+                                Form1.Instance.Hide();
+                                DashboardForm dashboardForm = new DashboardForm();
+                                dashboardForm.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show(@"You don't have permissions to login admin panel!", $"Error");
+                                siticoneButton1.Enabled = true;
+                                return;
+                            }
+
+                        }
+                    }
+
+                    else if (!response.Success)
+                    {
+                        MessageBox.Show(response.Message, @"Error");
+                       siticoneButton1.Enabled = true;
+                    }
+
+                    else
+                    {
+                        MessageBox.Show(@"Network error! Error Status: 500", @"Error");
+                        siticoneButton1.Enabled = true;
                     }
                 }
-
-                else if (deserializeJson != null && deserializeJson.ToString().Contains("false"))
+                catch (Exception exception)
                 {
-                    var successObject = JsonConvert.DeserializeObject<SingleResponseModel<TokenModel>>(response);
-                    if (successObject != null) MessageBox.Show(successObject.Message, @"Error");
+                    MessageBox.Show(@"Error when trying to connect server!",@"Error");
+                    siticoneButton1.Enabled = true;
+                    return;
                 }
+             
 
-                else
-                {
-                    MessageBox.Show("Network error! Error Status: 500", @"Error");
-                }
+               
             }
 
 
@@ -76,6 +94,7 @@ namespace FMSWindows.UserControls
                 WaitForSeconds(2500);
                 emailEmptyLabel.Hide();
                 passwordEmptyLabel.Hide();
+                siticoneButton1.Enabled = true;
                 return false;
             }
             else if (String.IsNullOrWhiteSpace(siticoneTextBox1.Text))
@@ -83,6 +102,7 @@ namespace FMSWindows.UserControls
                 emailEmptyLabel.Show();
                 WaitForSeconds(2500);
                 emailEmptyLabel.Hide();
+                siticoneButton1.Enabled = true;
                 return false;
 
             }
@@ -91,10 +111,12 @@ namespace FMSWindows.UserControls
                 passwordEmptyLabel.Show();
                 WaitForSeconds(2500);
                 passwordEmptyLabel.Hide();
+                siticoneButton1.Enabled = true;
                 return false;
 
             }
 
+           
             return true;
         }
 
@@ -120,5 +142,6 @@ namespace FMSWindows.UserControls
                 Application.DoEvents();
             }
         }
+
     }
 }

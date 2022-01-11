@@ -42,5 +42,10 @@ namespace FMSWindows
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void siticonePanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

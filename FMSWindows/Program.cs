@@ -9,6 +9,9 @@ namespace FMSWindows
     internal static class Program
     {
         public static string Jwt;
+        public static string SecurityKey;
+        public static int Id;
+
 
         [STAThread]
         static void Main()
