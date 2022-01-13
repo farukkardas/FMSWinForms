@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.loginPanelButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.registerPanelButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneBorderlessForm1 = new Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm(this.components);
             this.siticoneAnimateWindow1 = new Siticone.Desktop.UI.WinForms.SiticoneAnimateWindow(this.components);
             this.siticoneAnimateWindow2 = new Siticone.Desktop.UI.WinForms.SiticoneAnimateWindow(this.components);
@@ -41,6 +40,7 @@
             this.uc_LoginForm1 = new FMSWindows.UserControls.Uc_LoginForm();
             this.uc_RegisterForm1 = new FMSWindows.Uc_RegisterForm();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.siticoneCircleButton1 = new Siticone.Desktop.UI.WinForms.SiticoneCircleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,27 +69,6 @@
             this.loginPanelButton.TabIndex = 0;
             this.loginPanelButton.Text = "Login";
             this.loginPanelButton.Click += new System.EventHandler(this.loginPanelButton_Click);
-            // 
-            // registerPanelButton
-            // 
-            this.registerPanelButton.CheckedState.Parent = this.registerPanelButton;
-            this.registerPanelButton.CustomImages.Parent = this.registerPanelButton;
-            this.registerPanelButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.registerPanelButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.registerPanelButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.registerPanelButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.registerPanelButton.DisabledState.Parent = this.registerPanelButton;
-            this.registerPanelButton.FillColor = System.Drawing.Color.Red;
-            this.registerPanelButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.registerPanelButton.ForeColor = System.Drawing.Color.White;
-            this.registerPanelButton.HoverState.Parent = this.registerPanelButton;
-            this.registerPanelButton.Location = new System.Drawing.Point(53, 332);
-            this.registerPanelButton.Name = "registerPanelButton";
-            this.registerPanelButton.ShadowDecoration.Parent = this.registerPanelButton;
-            this.registerPanelButton.Size = new System.Drawing.Size(180, 43);
-            this.registerPanelButton.TabIndex = 1;
-            this.registerPanelButton.Text = "Register";
-            this.registerPanelButton.Click += new System.EventHandler(this.registerPanelButton_Click);
             // 
             // siticoneBorderlessForm1
             // 
@@ -146,6 +125,7 @@
             // 
             // siticoneButton2
             // 
+            this.siticoneButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.siticoneButton2.Animated = true;
             this.siticoneButton2.AutoRoundedCorners = true;
             this.siticoneButton2.BorderRadius = 20;
@@ -160,7 +140,7 @@
             this.siticoneButton2.Font = new System.Drawing.Font("Trebuchet MS", 9.75F);
             this.siticoneButton2.ForeColor = System.Drawing.Color.White;
             this.siticoneButton2.HoverState.Parent = this.siticoneButton2;
-            this.siticoneButton2.Location = new System.Drawing.Point(53, 332);
+            this.siticoneButton2.Location = new System.Drawing.Point(53, 324);
             this.siticoneButton2.Name = "siticoneButton2";
             this.siticoneButton2.ShadowDecoration.Parent = this.siticoneButton2;
             this.siticoneButton2.Size = new System.Drawing.Size(180, 43);
@@ -168,21 +148,44 @@
             this.siticoneButton2.Text = "Register";
             this.siticoneButton2.Click += new System.EventHandler(this.registerPanelButton_Click);
             // 
+            // siticoneCircleButton1
+            // 
+            this.siticoneCircleButton1.CheckedState.Parent = this.siticoneCircleButton1;
+            this.siticoneCircleButton1.CustomImages.Parent = this.siticoneCircleButton1;
+            this.siticoneCircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneCircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.siticoneCircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.siticoneCircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.siticoneCircleButton1.DisabledState.Parent = this.siticoneCircleButton1;
+            this.siticoneCircleButton1.FillColor = System.Drawing.Color.Red;
+            this.siticoneCircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.siticoneCircleButton1.ForeColor = System.Drawing.Color.White;
+            this.siticoneCircleButton1.HoverState.Parent = this.siticoneCircleButton1;
+            this.siticoneCircleButton1.Location = new System.Drawing.Point(684, 12);
+            this.siticoneCircleButton1.Name = "siticoneCircleButton1";
+            this.siticoneCircleButton1.ShadowDecoration.Mode = Siticone.Desktop.UI.WinForms.Enums.ShadowMode.Circle;
+            this.siticoneCircleButton1.ShadowDecoration.Parent = this.siticoneCircleButton1;
+            this.siticoneCircleButton1.Size = new System.Drawing.Size(20, 20);
+            this.siticoneCircleButton1.TabIndex = 8;
+            this.siticoneCircleButton1.Text = "siticoneCircleButton1";
+            this.siticoneCircleButton1.Click += new System.EventHandler(this.siticoneCircleButton1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 400);
+            this.Controls.Add(this.siticoneCircleButton1);
             this.Controls.Add(this.siticoneHtmlLabel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.uc_LoginForm1);
             this.Controls.Add(this.siticoneButton2);
-            this.Controls.Add(this.registerPanelButton);
             this.Controls.Add(this.loginPanelButton);
             this.Controls.Add(this.uc_RegisterForm1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -192,7 +195,6 @@
         #endregion
 
         private Siticone.Desktop.UI.WinForms.SiticoneButton loginPanelButton;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton registerPanelButton;
         private Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm siticoneBorderlessForm1;
         private Siticone.Desktop.UI.WinForms.SiticoneAnimateWindow siticoneAnimateWindow1;
         private Siticone.Desktop.UI.WinForms.SiticoneAnimateWindow siticoneAnimateWindow2;
@@ -202,6 +204,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
+        private Siticone.Desktop.UI.WinForms.SiticoneCircleButton siticoneCircleButton1;
     }
 }
 

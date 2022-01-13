@@ -36,6 +36,7 @@
             this.siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneTextBox2 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.rememberMeChck = new Siticone.Desktop.UI.WinForms.SiticoneCheckBox();
             this.SuspendLayout();
             // 
             // passwordEmptyLabel
@@ -92,7 +93,7 @@
             this.siticoneButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.siticoneButton1.ForeColor = System.Drawing.Color.White;
             this.siticoneButton1.HoverState.Parent = this.siticoneButton1;
-            this.siticoneButton1.Location = new System.Drawing.Point(125, 238);
+            this.siticoneButton1.Location = new System.Drawing.Point(123, 266);
             this.siticoneButton1.Name = "siticoneButton1";
             this.siticoneButton1.ShadowDecoration.Parent = this.siticoneButton1;
             this.siticoneButton1.Size = new System.Drawing.Size(180, 36);
@@ -162,10 +163,28 @@
             this.siticoneTextBox2.Size = new System.Drawing.Size(200, 29);
             this.siticoneTextBox2.TabIndex = 15;
             // 
+            // rememberMeChck
+            // 
+            this.rememberMeChck.AutoSize = true;
+            this.rememberMeChck.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rememberMeChck.CheckedState.BorderRadius = 0;
+            this.rememberMeChck.CheckedState.BorderThickness = 0;
+            this.rememberMeChck.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rememberMeChck.Location = new System.Drawing.Point(123, 229);
+            this.rememberMeChck.Name = "rememberMeChck";
+            this.rememberMeChck.Size = new System.Drawing.Size(95, 17);
+            this.rememberMeChck.TabIndex = 16;
+            this.rememberMeChck.Text = "Remember Me";
+            this.rememberMeChck.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rememberMeChck.UncheckedState.BorderRadius = 0;
+            this.rememberMeChck.UncheckedState.BorderThickness = 0;
+            this.rememberMeChck.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
             // Uc_LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.rememberMeChck);
             this.Controls.Add(this.siticoneTextBox2);
             this.Controls.Add(this.siticoneHtmlLabel1);
             this.Controls.Add(this.passwordEmptyLabel);
@@ -191,5 +210,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox2;
+        private Siticone.Desktop.UI.WinForms.SiticoneCheckBox rememberMeChck;
     }
 }

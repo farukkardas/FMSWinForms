@@ -77,6 +77,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -94,6 +95,7 @@
     <Compile Include="DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\SortableBindingList.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +103,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Auth\RegisterModel.cs" />
+    <Compile Include="Models\Constants\Cities.cs" />
+    <Compile Include="Models\Constants\Status.cs" />
+    <Compile Include="Models\CustomerDetail.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\ResponseModels\ErrorModel.cs" />
     <Compile Include="Models\ResponseModels\ListErrorModel.cs" />
     <Compile Include="Models\ResponseModels\ListResponseModel.cs" />
@@ -109,9 +115,19 @@
     <Compile Include="Models\ResponseModels\ResponseModel.cs" />
     <Compile Include="Models\ResponseModels\SingleResponseModel.cs" />
     <Compile Include="Models\Auth\TokenModel.cs" />
+    <Compile Include="Models\UserDetail.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="UserControls\Animals\Uc_Animals.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Animals\Uc_Animals.Designer.cs">
+      <DependentUpon>Uc_Animals.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Auth_Controls\Uc_LoginForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +139,48 @@
     </Compile>
     <Compile Include="UserControls\Auth_Controls\Uc_RegisterForm.Designer.cs">
       <DependentUpon>Uc_RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Customer\Uc_Customer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Customer\Uc_Customer.Designer.cs">
+      <DependentUpon>Uc_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\Uc_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Dashboard\Uc_Dashboard.Designer.cs">
+      <DependentUpon>Uc_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\List_Product\Uc_ListProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\List_Product\Uc_ListProduct.Designer.cs">
+      <DependentUpon>Uc_ListProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Pending_Order\Uc_ApprovedOrders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Pending_Order\Uc_ApprovedOrders.Designer.cs">
+      <DependentUpon>Uc_ApprovedOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Pending_Order\Uc_DeliveryOrders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Pending_Order\Uc_DeliveryOrders.Designer.cs">
+      <DependentUpon>Uc_DeliveryOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Pending_Order\Uc_PendingOrders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Pending_Order\Uc_PendingOrders.Designer.cs">
+      <DependentUpon>Uc_PendingOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Sales_Data\Uc_SalesData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Sales_Data\Uc_SalesData.Designer.cs">
+      <DependentUpon>Uc_SalesData.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
@@ -139,11 +197,35 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\Animals\Uc_Animals.resx">
+      <DependentUpon>Uc_Animals.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Auth_Controls\Uc_LoginForm.resx">
       <DependentUpon>Uc_LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Auth_Controls\Uc_RegisterForm.resx">
       <DependentUpon>Uc_RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Customer\Uc_Customer.resx">
+      <DependentUpon>Uc_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Dashboard\Uc_Dashboard.resx">
+      <DependentUpon>Uc_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\List_Product\Uc_ListProduct.resx">
+      <DependentUpon>Uc_ListProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Pending_Order\Uc_ApprovedOrders.resx">
+      <DependentUpon>Uc_ApprovedOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Pending_Order\Uc_DeliveryOrders.resx">
+      <DependentUpon>Uc_DeliveryOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Pending_Order\Uc_PendingOrders.resx">
+      <DependentUpon>Uc_PendingOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Sales_Data\Uc_SalesData.resx">
+      <DependentUpon>Uc_SalesData.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -162,6 +244,7 @@
   <ItemGroup>
     <Folder Include="Assets\Menu_Icons\" />
     <Folder Include="Assets\Pictures\" />
+    <Folder Include="UserControls\Animals\Sub_Animals\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -11,6 +12,8 @@ using System.Windows.Forms;
 using FMSWindows.Models;
 using FMSWindows.Services;
 using Newtonsoft.Json;
+using Siticone.Desktop.UI.WinForms;
+using Siticone.Desktop.UI.WinForms.Suite;
 
 namespace FMSWindows.UserControls
 {
@@ -21,6 +24,8 @@ namespace FMSWindows.UserControls
             InitializeComponent();
             emailEmptyLabel.Hide();
             passwordEmptyLabel.Hide();
+            GetCredentials();
+            siticoneTextBox2.PasswordChar = '*';
         }
 
         private async void siticoneButton1_Click(object sender, EventArgs e)
@@ -30,58 +35,119 @@ namespace FMSWindows.UserControls
 
             if (ValidateFields())
             {
+                SiticoneMessageDialog siticoneMessageDialog = new SiticoneMessageDialog();
                 try
                 {
                     var response = await authService.Login(siticoneTextBox1.Text, siticoneTextBox2.Text);
-
+                   
+                  
                     if (response.Success)
                     {
                         foreach (var operationClaim in response.Data.OperationClaims)
                         {
+                            
                             if (operationClaim.Name.Contains("admin") || operationClaim.Name.Contains("user"))
                             {
-                                MessageBox.Show(response.Message, @"Success");
+                                siticoneMessageDialog.Style = MessageDialogStyle.Light;
+                                SaveCredentials();
+                                siticoneMessageDialog.Show(response.Message,@"Success");
                                 Program.Jwt = response.Data.Token;
                                 Program.Id = response.Data.Id;
                                 Program.SecurityKey = response.Data.SecurityKey;
-
+                                siticoneButton1.Enabled = true;
                                 Form1.Instance.Hide();
                                 DashboardForm dashboardForm = new DashboardForm();
-                                dashboardForm.Show();
+                                DashboardForm.Instance.Show();
                             }
                             else
                             {
-                                MessageBox.Show(@"You don't have permissions to login admin panel!", $"Error");
+                                siticoneMessageDialog.Show(@"You don't have permissions to login admin panel!", $"Error");
                                 siticoneButton1.Enabled = true;
                                 return;
                             }
 
                         }
                     }
-
                     else if (!response.Success)
                     {
-                        MessageBox.Show(response.Message, @"Error");
-                       siticoneButton1.Enabled = true;
+                        siticoneMessageDialog.Style = MessageDialogStyle.Default;
+
+                        siticoneMessageDialog.Icon = MessageDialogIcon.Error;
+
+                        siticoneMessageDialog.Show(response.Message, @"Error");
+                        siticoneButton1.Enabled = true;
                     }
 
                     else
                     {
-                        MessageBox.Show(@"Network error! Error Status: 500", @"Error");
+                        siticoneMessageDialog.Style = MessageDialogStyle.Default;
+                        siticoneMessageDialog.Icon = MessageDialogIcon.Error;
+                        siticoneMessageDialog.Show(@"Network error! Error Status: 500", @"Error");
                         siticoneButton1.Enabled = true;
                     }
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show(@"Error when trying to connect server!",@"Error");
+                    siticoneMessageDialog.Style = MessageDialogStyle.Default;
+                    siticoneMessageDialog.Icon = MessageDialogIcon.Error;
+                    siticoneMessageDialog.Show(@"Error when trying to connect server!", @"Error");
                     siticoneButton1.Enabled = true;
                     return;
                 }
-             
 
-               
+
+
             }
 
+
+        }
+
+        private void SaveCredentials()
+        {
+            if (rememberMeChck.Checked)
+            {
+                var path = Directory.GetCurrentDirectory() + "/credentials.txt";
+                LoginModel loginModel = new LoginModel();
+                loginModel.Email = siticoneTextBox1.Text;
+                loginModel.Password = siticoneTextBox2.Text;
+                var json = JsonConvert.SerializeObject(loginModel);
+
+                if (!File.Exists(path))
+                {
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        sw.WriteLine(json);
+
+                    }
+                }
+                else
+                {
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        sw.WriteLine(json);
+
+                    }
+                }
+
+            }
+        }
+
+        private void GetCredentials()
+        {
+            var path = Directory.GetCurrentDirectory() + "/credentials.txt";
+            string s = "";
+            using (StreamReader sr = File.OpenText(path))
+            {
+                while ((s = sr.ReadLine()) != null)
+                {
+                    var model = JsonConvert.DeserializeObject<LoginModel>(s);
+                    if (model != null)
+                    {
+                        siticoneTextBox1.Text = model.Email;
+                        siticoneTextBox2.Text = model.Password;
+                    }
+                }
+            }
 
         }
 
@@ -116,7 +182,7 @@ namespace FMSWindows.UserControls
 
             }
 
-           
+
             return true;
         }
 
