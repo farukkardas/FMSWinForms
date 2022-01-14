@@ -4,18 +4,22 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FMSWindows.Models;
 using FMSWindows.Models.Constants;
 using FMSWindows.Services;
+using Siticone.Desktop.UI.WinForms;
 
 namespace FMSWindows.UserControls.Pending_Order
 {
     public partial class Uc_ApprovedOrders : UserControl
     {
         public static Uc_ApprovedOrders Instance;
+        private string _orderValue;
+
         public Uc_ApprovedOrders()
         {
             InitializeComponent();
@@ -31,6 +35,37 @@ namespace FMSWindows.UserControls.Pending_Order
             approvedOrderDgw.ReadOnly = true;
             approvedOrderDgw.AllowUserToAddRows = false;
 
+        }
+
+        private async void AddDeliveryNo()
+        {
+            try
+            {
+                OrderService orderService = new OrderService();
+
+                var response = await orderService.AddDeliveryNo(_orderValue, deliveryTxtBox.Text);
+
+                SiticoneMessageDialog siticoneMessageDialog = new SiticoneMessageDialog();
+                if (response.Success)
+                {
+                    siticoneMessageDialog.Style = MessageDialogStyle.Light;
+                    siticoneMessageDialog.Text = response.Message;
+                    siticoneMessageDialog.Show();
+                    GetApprovedOrders();
+                }
+                else
+                {
+                    siticoneMessageDialog.Style = MessageDialogStyle.Light;
+                    siticoneMessageDialog.Text = response.Message;
+                    siticoneMessageDialog.Show();
+                }
+
+            }
+            catch (WebException e)
+            {
+
+                throw;
+            }
         }
 
         private void SetDgwProperties()
@@ -49,13 +84,17 @@ namespace FMSWindows.UserControls.Pending_Order
         {
             try
             {
+                approvedOrderDgw.Columns.Clear();
                 OrderService orderService = new OrderService();
-
                 var response = await orderService.GetCustomerDetails();
-
                 List<OrderDetail> orderDetail = new List<OrderDetail>();
-
                 orderDetail = response.Data.Where(d => d.Status == 3).ToList();
+                if (orderDetail.Count <= 0)
+                {
+                    emptyPicture.Visible = true;
+                    return;
+                }
+                emptyPicture.Visible = false;
                 //Burada manuel yaptım verileri manipüle etmek istiyordum
                 approvedOrderDgw.Columns.Clear();
                 approvedOrderDgw.Columns.Add("Id", "Id");
@@ -68,6 +107,7 @@ namespace FMSWindows.UserControls.Pending_Order
                 approvedOrderDgw.Columns.Add("DeliveryAddress", "DeliveryAddress");
                 approvedOrderDgw.Columns.Add("BoughtDate", "BoughtDate");
                 approvedOrderDgw.Columns.Add("Status", "Status");
+
 
                 approvedOrderDgw.Rows.Add(orderDetail.Count);
                 for (int i = 0; i < orderDetail.Count; i++)
@@ -93,6 +133,36 @@ namespace FMSWindows.UserControls.Pending_Order
             {
                 Console.WriteLine(e);
             }
+        }
+
+        private void approvedOrderDgw_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (approvedOrderDgw.CurrentRow != null && approvedOrderDgw.CurrentRow.Selected)
+            {
+                if (approvedOrderDgw.Rows[e.RowIndex].Cells[0].Value != null)
+                    _orderValue = approvedOrderDgw.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
+        }
+
+        private void deliveryTxtBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar)
+               && !char.IsSeparator(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void siticoneButton2_Click(object sender, EventArgs e)
+        {
+            //Burada kullanıcı doğru hata mesajları ile yönlendirmek çok önemli
+            if (String.IsNullOrEmpty(_orderValue) || String.IsNullOrEmpty(deliveryTxtBox.Text))
+            {
+                SiticoneMessageDialog siticoneMessageDialog = new SiticoneMessageDialog();
+                siticoneMessageDialog.Text = "Please select a cell and then enter the delivery number.";
+                siticoneMessageDialog.Style = MessageDialogStyle.Default;
+                siticoneMessageDialog.Show();
+                return;
+            }
+
+            AddDeliveryNo();
         }
     }
 }

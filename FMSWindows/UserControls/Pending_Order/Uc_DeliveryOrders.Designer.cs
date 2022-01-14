@@ -31,9 +31,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Uc_DeliveryOrders));
             this.deliveryDgw = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticonePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDgw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // deliveryDgw
@@ -104,16 +107,29 @@
             this.siticoneHtmlLabel1.TabIndex = 6;
             this.siticoneHtmlLabel1.Text = "On Delivery";
             // 
+            // siticonePictureBox1
+            // 
+            this.siticonePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("siticonePictureBox1.Image")));
+            this.siticonePictureBox1.ImageRotate = 0F;
+            this.siticonePictureBox1.Location = new System.Drawing.Point(176, 3);
+            this.siticonePictureBox1.Name = "siticonePictureBox1";
+            this.siticonePictureBox1.ShadowDecoration.Parent = this.siticonePictureBox1;
+            this.siticonePictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.siticonePictureBox1.TabIndex = 10;
+            this.siticonePictureBox1.TabStop = false;
+            // 
             // Uc_DeliveryOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.siticonePictureBox1);
             this.Controls.Add(this.deliveryDgw);
             this.Controls.Add(this.siticoneHtmlLabel1);
             this.Name = "Uc_DeliveryOrders";
             this.Size = new System.Drawing.Size(850, 630);
             this.Load += new System.EventHandler(this.Uc_DeliveryOrders_Load);
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDgw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,5 +139,6 @@
 
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView deliveryDgw;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
+        private Siticone.Desktop.UI.WinForms.SiticonePictureBox siticonePictureBox1;
     }
 }

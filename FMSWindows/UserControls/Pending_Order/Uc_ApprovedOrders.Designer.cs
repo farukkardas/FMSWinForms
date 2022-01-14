@@ -28,13 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Uc_ApprovedOrders));
             this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.approvedOrderDgw = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.deliveryTxtBox = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticonePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
+            this.emptyPicture = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.approvedOrderDgw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // siticoneHtmlLabel1
@@ -49,30 +56,30 @@
             // 
             // approvedOrderDgw
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.approvedOrderDgw.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.approvedOrderDgw.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.approvedOrderDgw.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.approvedOrderDgw.BackgroundColor = System.Drawing.Color.White;
             this.approvedOrderDgw.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.approvedOrderDgw.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.approvedOrderDgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.approvedOrderDgw.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.approvedOrderDgw.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.approvedOrderDgw.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.approvedOrderDgw.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.approvedOrderDgw.DefaultCellStyle = dataGridViewCellStyle12;
             this.approvedOrderDgw.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.approvedOrderDgw.EnableHeadersVisualStyles = false;
             this.approvedOrderDgw.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -104,10 +111,12 @@
             this.approvedOrderDgw.ThemeStyle.RowsStyle.Height = 22;
             this.approvedOrderDgw.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.approvedOrderDgw.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.approvedOrderDgw.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.approvedOrderDgw_CellClick);
             // 
             // siticoneButton2
             // 
             this.siticoneButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.siticoneButton2.BorderColor = System.Drawing.Color.Transparent;
             this.siticoneButton2.BorderRadius = 5;
             this.siticoneButton2.BorderThickness = 1;
             this.siticoneButton2.CheckedState.Parent = this.siticoneButton2;
@@ -117,21 +126,86 @@
             this.siticoneButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.siticoneButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.siticoneButton2.DisabledState.Parent = this.siticoneButton2;
-            this.siticoneButton2.FillColor = System.Drawing.Color.LimeGreen;
-            this.siticoneButton2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.siticoneButton2.FillColor = System.Drawing.Color.Red;
+            this.siticoneButton2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.siticoneButton2.ForeColor = System.Drawing.Color.White;
             this.siticoneButton2.HoverState.Parent = this.siticoneButton2;
-            this.siticoneButton2.Location = new System.Drawing.Point(742, 36);
+            this.siticoneButton2.Location = new System.Drawing.Point(741, 48);
             this.siticoneButton2.Name = "siticoneButton2";
             this.siticoneButton2.ShadowDecoration.Parent = this.siticoneButton2;
             this.siticoneButton2.Size = new System.Drawing.Size(147, 34);
             this.siticoneButton2.TabIndex = 6;
             this.siticoneButton2.Text = "Add Delivery NO";
+            this.siticoneButton2.Click += new System.EventHandler(this.siticoneButton2_Click);
+            // 
+            // deliveryTxtBox
+            // 
+            this.deliveryTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.deliveryTxtBox.Animated = true;
+            this.deliveryTxtBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.deliveryTxtBox.DefaultText = "";
+            this.deliveryTxtBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.deliveryTxtBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.deliveryTxtBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.deliveryTxtBox.DisabledState.Parent = this.deliveryTxtBox;
+            this.deliveryTxtBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.deliveryTxtBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.deliveryTxtBox.FocusedState.Parent = this.deliveryTxtBox;
+            this.deliveryTxtBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.deliveryTxtBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.deliveryTxtBox.HoverState.Parent = this.deliveryTxtBox;
+            this.deliveryTxtBox.Location = new System.Drawing.Point(519, 46);
+            this.deliveryTxtBox.Name = "deliveryTxtBox";
+            this.deliveryTxtBox.PasswordChar = '\0';
+            this.deliveryTxtBox.PlaceholderText = "";
+            this.deliveryTxtBox.SelectedText = "";
+            this.deliveryTxtBox.ShadowDecoration.Parent = this.deliveryTxtBox;
+            this.deliveryTxtBox.Size = new System.Drawing.Size(200, 36);
+            this.deliveryTxtBox.TabIndex = 7;
+            this.deliveryTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.deliveryTxtBox_KeyPress);
+            // 
+            // siticoneHtmlLabel2
+            // 
+            this.siticoneHtmlLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(519, 18);
+            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
+            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(82, 20);
+            this.siticoneHtmlLabel2.TabIndex = 8;
+            this.siticoneHtmlLabel2.Text = "Delivery NO";
+            // 
+            // siticonePictureBox1
+            // 
+            this.siticonePictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("siticonePictureBox1.Image")));
+            this.siticonePictureBox1.ImageRotate = 0F;
+            this.siticonePictureBox1.Location = new System.Drawing.Point(176, 3);
+            this.siticonePictureBox1.Name = "siticonePictureBox1";
+            this.siticonePictureBox1.ShadowDecoration.Parent = this.siticonePictureBox1;
+            this.siticonePictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.siticonePictureBox1.TabIndex = 9;
+            this.siticonePictureBox1.TabStop = false;
+            // 
+            // emptyPicture
+            // 
+            this.emptyPicture.Image = ((System.Drawing.Image)(resources.GetObject("emptyPicture.Image")));
+            this.emptyPicture.ImageRotate = 0F;
+            this.emptyPicture.Location = new System.Drawing.Point(350, 250);
+            this.emptyPicture.Name = "emptyPicture";
+            this.emptyPicture.ShadowDecoration.Parent = this.emptyPicture;
+            this.emptyPicture.Size = new System.Drawing.Size(250, 250);
+            this.emptyPicture.TabIndex = 12;
+            this.emptyPicture.TabStop = false;
+            this.emptyPicture.Visible = false;
             // 
             // Uc_ApprovedOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.emptyPicture);
+            this.Controls.Add(this.siticonePictureBox1);
+            this.Controls.Add(this.siticoneHtmlLabel2);
+            this.Controls.Add(this.deliveryTxtBox);
             this.Controls.Add(this.siticoneButton2);
             this.Controls.Add(this.approvedOrderDgw);
             this.Controls.Add(this.siticoneHtmlLabel1);
@@ -139,6 +213,8 @@
             this.Size = new System.Drawing.Size(1050, 650);
             this.Load += new System.EventHandler(this.Uc_ApprovedOrders_Load);
             ((System.ComponentModel.ISupportInitialize)(this.approvedOrderDgw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +225,9 @@
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView approvedOrderDgw;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox deliveryTxtBox;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
+        private Siticone.Desktop.UI.WinForms.SiticonePictureBox siticonePictureBox1;
+        private Siticone.Desktop.UI.WinForms.SiticonePictureBox emptyPicture;
     }
 }

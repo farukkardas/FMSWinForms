@@ -55,7 +55,14 @@ namespace FMSWindows.UserControls.Pending_Order
 
                 List<OrderDetail> orderDetail = new List<OrderDetail>();
 
+             
                 orderDetail = response.Data.Where(d => d.Status == 5).ToList();
+
+                if (orderDetail.Count <= 0)
+                {
+                    return;
+                }
+
                 //Burada manuel yaptım verileri manipüle etmek istiyordum
                 deliveryDgw.Columns.Clear();
                 deliveryDgw.Columns.Add("Id", "Id");

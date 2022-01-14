@@ -52,15 +52,21 @@ namespace FMSWindows.UserControls.Pending_Order
         {
             try
             {
-                OrderService orderService = new OrderService();
-
-                var response = await orderService.GetCustomerDetails();
-
-                List<OrderDetail> orderDetail = new List<OrderDetail>();
-
-                orderDetail = response.Data.Where(d => d.Status == 2).ToList();
-                //Burada manuel yaptım verileri manipüle etmek istiyordum
                 orderDgw.Columns.Clear();
+                OrderService orderService = new OrderService();
+                var response = await orderService.GetCustomerDetails();
+                List<OrderDetail> orderDetail = new List<OrderDetail>();
+                orderDetail = response.Data.Where(d => d.Status == 2).ToList();
+                
+                if (orderDetail.Count <= 0)
+                {
+                    emptyPicture.Visible = true;
+                    return;
+                }
+
+                emptyPicture.Visible = false;
+                //Burada manuel yaptım verileri manipüle etmek istiyordum
+               
                 orderDgw.Columns.Add("Id", "Id");
                 orderDgw.Columns.Add("ProductId", "ProductId");
                 orderDgw.Columns.Add("ProductName", "ProductName");
