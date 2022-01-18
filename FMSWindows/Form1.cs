@@ -23,7 +23,7 @@ namespace FMSWindows
 
         private void loginPanelButton_Click(object sender, EventArgs e)
         {
-            uc_LoginForm1.BringToFront();
+            uc_LoginForm2.BringToFront();
         }
 
         private void registerPanelButton_Click(object sender, EventArgs e)

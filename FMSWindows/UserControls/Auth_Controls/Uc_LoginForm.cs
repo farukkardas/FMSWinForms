@@ -26,6 +26,7 @@ namespace FMSWindows.UserControls
             passwordEmptyLabel.Hide();
             GetCredentials();
             siticoneTextBox2.PasswordChar = '*';
+            this.BringToFront();
         }
 
         private async void siticoneButton1_Click(object sender, EventArgs e)
@@ -71,17 +72,19 @@ namespace FMSWindows.UserControls
                     else if (!response.Success)
                     {
                         siticoneMessageDialog.Style = MessageDialogStyle.Default;
-
+                        this.SendToBack();
                         siticoneMessageDialog.Icon = MessageDialogIcon.Error;
 
                         siticoneMessageDialog.Show(response.Message, @"Error");
                         siticoneButton1.Enabled = true;
+              
                     }
 
                     else
                     {
                         siticoneMessageDialog.Style = MessageDialogStyle.Default;
                         siticoneMessageDialog.Icon = MessageDialogIcon.Error;
+                        this.SendToBack();
                         siticoneMessageDialog.Show(@"Network error! Error Status: 500", @"Error");
                         siticoneButton1.Enabled = true;
                     }
@@ -134,7 +137,7 @@ namespace FMSWindows.UserControls
 
         private void GetCredentials()
         {
-            var path = Directory.GetCurrentDirectory() + "/credentials.txt";
+            var path = "D:\\Development\\VisualStudio\\C#\\FMSWindows\\FMSWindows\\bin\\Debug" + "\\credentials.txt";
             string s = "";
             using (StreamReader sr = File.OpenText(path))
             {
@@ -209,5 +212,9 @@ namespace FMSWindows.UserControls
             }
         }
 
+        private void Uc_LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

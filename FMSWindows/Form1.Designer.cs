@@ -37,10 +37,10 @@
             this.siticoneContextMenuStrip1 = new Siticone.Desktop.UI.WinForms.SiticoneContextMenuStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.uc_LoginForm1 = new FMSWindows.UserControls.Uc_LoginForm();
-            this.uc_RegisterForm1 = new FMSWindows.Uc_RegisterForm();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneCircleButton1 = new Siticone.Desktop.UI.WinForms.SiticoneCircleButton();
+            this.uc_RegisterForm1 = new FMSWindows.Uc_RegisterForm();
+            this.uc_LoginForm2 = new FMSWindows.UserControls.Uc_LoginForm();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             this.loginPanelButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.loginPanelButton.DisabledState.Parent = this.loginPanelButton;
             this.loginPanelButton.FillColor = System.Drawing.Color.Red;
-            this.loginPanelButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.loginPanelButton.Font = new System.Drawing.Font("Trebuchet MS", 9.75F);
             this.loginPanelButton.ForeColor = System.Drawing.Color.White;
             this.loginPanelButton.HoverState.Parent = this.loginPanelButton;
             this.loginPanelButton.Location = new System.Drawing.Point(53, 260);
@@ -108,21 +108,6 @@
             this.siticoneHtmlLabel1.TabIndex = 7;
             this.siticoneHtmlLabel1.Text = "FMS";
             // 
-            // uc_LoginForm1
-            // 
-            this.uc_LoginForm1.Location = new System.Drawing.Point(276, 36);
-            this.uc_LoginForm1.Name = "uc_LoginForm1";
-            this.uc_LoginForm1.Size = new System.Drawing.Size(400, 352);
-            this.uc_LoginForm1.TabIndex = 5;
-            // 
-            // uc_RegisterForm1
-            // 
-            this.uc_RegisterForm1.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uc_RegisterForm1.Location = new System.Drawing.Point(276, 36);
-            this.uc_RegisterForm1.Name = "uc_RegisterForm1";
-            this.uc_RegisterForm1.Size = new System.Drawing.Size(400, 354);
-            this.uc_RegisterForm1.TabIndex = 0;
-            // 
             // siticoneButton2
             // 
             this.siticoneButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -170,6 +155,21 @@
             this.siticoneCircleButton1.Text = "siticoneCircleButton1";
             this.siticoneCircleButton1.Click += new System.EventHandler(this.siticoneCircleButton1_Click);
             // 
+            // uc_RegisterForm1
+            // 
+            this.uc_RegisterForm1.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uc_RegisterForm1.Location = new System.Drawing.Point(254, 34);
+            this.uc_RegisterForm1.Name = "uc_RegisterForm1";
+            this.uc_RegisterForm1.Size = new System.Drawing.Size(400, 354);
+            this.uc_RegisterForm1.TabIndex = 0;
+            // 
+            // uc_LoginForm2
+            // 
+            this.uc_LoginForm2.Location = new System.Drawing.Point(254, 38);
+            this.uc_LoginForm2.Name = "uc_LoginForm2";
+            this.uc_LoginForm2.Size = new System.Drawing.Size(450, 350);
+            this.uc_LoginForm2.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,9 +178,9 @@
             this.Controls.Add(this.siticoneCircleButton1);
             this.Controls.Add(this.siticoneHtmlLabel1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.uc_LoginForm1);
             this.Controls.Add(this.siticoneButton2);
             this.Controls.Add(this.loginPanelButton);
+            this.Controls.Add(this.uc_LoginForm2);
             this.Controls.Add(this.uc_RegisterForm1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
@@ -205,6 +205,7 @@
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
         private Siticone.Desktop.UI.WinForms.SiticoneCircleButton siticoneCircleButton1;
+        private UserControls.Uc_LoginForm uc_LoginForm2;
     }
 }
 

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FMSWindows.Services;
+using FMSWindows.Services.Abstract;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -14,12 +17,21 @@ namespace FMSWindows
         public static string SecurityKey;
         public static int Id;
 
+        public static IServiceProvider ServiceProvider { get; set; }
+
+        static void ConfigureServices()
+        {
+            var services = new ServiceCollection();
+            services.AddTransient<IProduct, ProductSaleService>();
+            ServiceProvider = services.BuildServiceProvider();
+        }
 
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            ConfigureServices();
             Application.Run(new Form1());
 
         }

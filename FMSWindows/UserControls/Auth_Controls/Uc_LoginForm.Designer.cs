@@ -195,6 +195,7 @@
             this.Controls.Add(this.siticoneTextBox1);
             this.Name = "Uc_LoginForm";
             this.Size = new System.Drawing.Size(450, 350);
+            this.Load += new System.EventHandler(this.Uc_LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
