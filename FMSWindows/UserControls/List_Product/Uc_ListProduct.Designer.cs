@@ -28,20 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Uc_ListProduct));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.emptyPicture = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.listProductDgw = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
-            this.uc_AddListProduct1 = new FMSWindows.UserControls.List_Product.Uc_AddListProduct();
+            this.uc_AddProduct1 = new FMSWindows.UserControls.List_Product.Uc_AddProduct();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listProductDgw)).BeginInit();
             this.SuspendLayout();
             // 
             // siticoneHtmlLabel1
             // 
             this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Novel Sans Pro Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.siticoneHtmlLabel1.Location = new System.Drawing.Point(4, 4);
             this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
             this.siticoneHtmlLabel1.Size = new System.Drawing.Size(117, 27);
@@ -61,10 +64,10 @@
             this.siticoneButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.siticoneButton2.DisabledState.Parent = this.siticoneButton2;
             this.siticoneButton2.FillColor = System.Drawing.Color.Red;
-            this.siticoneButton2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.siticoneButton2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.siticoneButton2.ForeColor = System.Drawing.Color.White;
             this.siticoneButton2.HoverState.Parent = this.siticoneButton2;
-            this.siticoneButton2.Location = new System.Drawing.Point(140, 0);
+            this.siticoneButton2.Location = new System.Drawing.Point(745, 45);
             this.siticoneButton2.Name = "siticoneButton2";
             this.siticoneButton2.ShadowDecoration.Parent = this.siticoneButton2;
             this.siticoneButton2.Size = new System.Drawing.Size(147, 34);
@@ -72,40 +75,56 @@
             this.siticoneButton2.Text = "Add Product";
             this.siticoneButton2.Click += new System.EventHandler(this.siticoneButton2_Click);
             // 
+            // emptyPicture
+            // 
+            this.emptyPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.emptyPicture.Image = ((System.Drawing.Image)(resources.GetObject("emptyPicture.Image")));
+            this.emptyPicture.ImageRotate = 0F;
+            this.emptyPicture.InitialImage = ((System.Drawing.Image)(resources.GetObject("emptyPicture.InitialImage")));
+            this.emptyPicture.Location = new System.Drawing.Point(274, 211);
+            this.emptyPicture.Name = "emptyPicture";
+            this.emptyPicture.ShadowDecoration.Parent = this.emptyPicture;
+            this.emptyPicture.Size = new System.Drawing.Size(260, 278);
+            this.emptyPicture.TabIndex = 10;
+            this.emptyPicture.TabStop = false;
+            // 
             // listProductDgw
             // 
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.listProductDgw.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.listProductDgw.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.listProductDgw.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.listProductDgw.BackgroundColor = System.Drawing.Color.White;
             this.listProductDgw.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listProductDgw.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.listProductDgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.listProductDgw.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listProductDgw.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.listProductDgw.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.listProductDgw.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.listProductDgw.DefaultCellStyle = dataGridViewCellStyle12;
+            this.listProductDgw.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.listProductDgw.EnableHeadersVisualStyles = false;
             this.listProductDgw.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.listProductDgw.Location = new System.Drawing.Point(-3, 61);
+            this.listProductDgw.Location = new System.Drawing.Point(0, 95);
             this.listProductDgw.Name = "listProductDgw";
             this.listProductDgw.RowHeadersVisible = false;
             this.listProductDgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listProductDgw.Size = new System.Drawing.Size(853, 569);
-            this.listProductDgw.TabIndex = 9;
+            this.listProductDgw.Size = new System.Drawing.Size(1050, 555);
+            this.listProductDgw.TabIndex = 12;
             this.listProductDgw.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.listProductDgw.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.listProductDgw.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -113,7 +132,7 @@
             this.listProductDgw.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.listProductDgw.ThemeStyle.BackColor = System.Drawing.Color.White;
             this.listProductDgw.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.listProductDgw.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.listProductDgw.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.Red;
             this.listProductDgw.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.listProductDgw.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.listProductDgw.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
@@ -128,24 +147,26 @@
             this.listProductDgw.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.listProductDgw.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // uc_AddListProduct1
+            // uc_AddProduct1
             // 
-            this.uc_AddListProduct1.Location = new System.Drawing.Point(-3, 61);
-            this.uc_AddListProduct1.Name = "uc_AddListProduct1";
-            this.uc_AddListProduct1.Size = new System.Drawing.Size(856, 569);
-            this.uc_AddListProduct1.TabIndex = 10;
+            this.uc_AddProduct1.Location = new System.Drawing.Point(0, 75);
+            this.uc_AddProduct1.Name = "uc_AddProduct1";
+            this.uc_AddProduct1.Size = new System.Drawing.Size(850, 555);
+            this.uc_AddProduct1.TabIndex = 11;
             // 
             // Uc_ListProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.listProductDgw);
+            this.Controls.Add(this.emptyPicture);
             this.Controls.Add(this.siticoneButton2);
             this.Controls.Add(this.siticoneHtmlLabel1);
-            this.Controls.Add(this.uc_AddListProduct1);
+            this.Controls.Add(this.uc_AddProduct1);
             this.Name = "Uc_ListProduct";
-            this.Size = new System.Drawing.Size(850, 630);
+            this.Size = new System.Drawing.Size(1050, 650);
             this.Load += new System.EventHandler(this.Uc_ListProduct_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.emptyPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listProductDgw)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -156,7 +177,8 @@
 
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
+        private Siticone.Desktop.UI.WinForms.SiticonePictureBox emptyPicture;
+        private Uc_AddProduct uc_AddProduct1;
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView listProductDgw;
-        private Uc_AddListProduct uc_AddListProduct1;
     }
 }

@@ -19,8 +19,13 @@ namespace FMSWindows.UserControls
 {
     public partial class Uc_LoginForm : UserControl
     {
+        public Uc_LoginForm Instance;
         public Uc_LoginForm()
         {
+            if(Instance == null)
+            {
+                Instance = this;
+            }
             InitializeComponent();
             emailEmptyLabel.Hide();
             passwordEmptyLabel.Hide();

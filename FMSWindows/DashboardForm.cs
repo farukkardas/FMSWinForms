@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FMSWindows.UserControls.Customer;
 using FMSWindows.UserControls.Dashboard;
+using FMSWindows.UserControls.List_Product;
 using FMSWindows.UserControls.Pending_Order;
+using FMSWindows.UserControls.Sales_Data;
 using Siticone.Desktop.UI.WinForms;
 
 namespace FMSWindows
@@ -42,29 +44,32 @@ namespace FMSWindows
 
         private void dashboardPanelButton_Click(object sender, EventArgs e)
         {
-            uc_Dashboard.BringToFront();
+            Uc_Dashboard.Instance.BringToFront();
             Uc_Dashboard.Instance.GetUserDetails();
         }
 
         private void siticoneButton1_Click(object sender, EventArgs e)
         {
             Uc_Customer.Instance.GetCustomerDetails();
-            uc_Customer.BringToFront();
+            Uc_Customer.Instance.BringToFront();
         }
 
         private void listProductButton_Click(object sender, EventArgs e)
         {
+            Uc_ListProduct.Instance.GetProducts();
             uc_ListProduct1.BringToFront();
+    
         }
 
         private void pendingOrdersButton_Click(object sender, EventArgs e)
         {
-            Uc_PendingOrders.Instance.GetPendingOrders();
             uc_PendingOrders1.BringToFront();
+            Uc_PendingOrders.Instance.GetPendingOrders();
         }
 
         private void salesDataButton_Click(object sender, EventArgs e)
         {
+            Uc_SalesData.Instance.GetSalesData();
             uc_SalesData1.BringToFront();
         }
 
@@ -75,8 +80,8 @@ namespace FMSWindows
 
         private void siticoneButton4_Click(object sender, EventArgs e)
         {
-            Uc_ApprovedOrders.Instance.GetApprovedOrders();
             uc_ApprovedOrders1.BringToFront();
+            Uc_ApprovedOrders.Instance.GetApprovedOrders();
             
         }
 
@@ -106,10 +111,13 @@ namespace FMSWindows
 
         private void siticoneButton5_Click(object sender, EventArgs e)
         {
-            Uc_DeliveryOrders.Instance.GetDeliveryOrders();
             uc_DeliveryOrders1.BringToFront();
+            Uc_DeliveryOrders.Instance.GetDeliveryOrders();
         }
 
-      
+        private void uc_AddProduct1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

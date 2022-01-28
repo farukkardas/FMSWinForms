@@ -32,8 +32,7 @@ namespace FMSWindows.UserControls.Pending_Order
         private void Uc_ApprovedOrders_Load(object sender, EventArgs e)
         {
             SetDgwProperties();
-            approvedOrderDgw.ReadOnly = true;
-            approvedOrderDgw.AllowUserToAddRows = false;
+          
 
         }
 
@@ -72,6 +71,8 @@ namespace FMSWindows.UserControls.Pending_Order
         {
             approvedOrderDgw.ColumnHeadersVisible = true;
             approvedOrderDgw.ColumnHeadersHeight = 20;
+            approvedOrderDgw.ReadOnly = true;
+            approvedOrderDgw.AllowUserToAddRows = false;
 
             foreach (DataGridViewColumn column in approvedOrderDgw.Columns)
             {
@@ -86,7 +87,7 @@ namespace FMSWindows.UserControls.Pending_Order
             {
                 approvedOrderDgw.Columns.Clear();
                 OrderService orderService = new OrderService();
-                var response = await orderService.GetCustomerDetails();
+                var response = await orderService.GetUserOrders();
                 List<OrderDetail> orderDetail = new List<OrderDetail>();
                 orderDetail = response.Data.Where(d => d.Status == 3).ToList();
                 if (orderDetail.Count <= 0)

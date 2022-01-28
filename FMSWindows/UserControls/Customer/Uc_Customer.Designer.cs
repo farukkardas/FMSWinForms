@@ -41,10 +41,10 @@
             // siticoneHtmlLabel1
             // 
             this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Novel Sans Pro Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneHtmlLabel1.Location = new System.Drawing.Point(3, 3);
             this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
-            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(109, 27);
+            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(106, 27);
             this.siticoneHtmlLabel1.TabIndex = 0;
             this.siticoneHtmlLabel1.Text = "Customers";
             // 
@@ -77,12 +77,12 @@
             this.customerDgw.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.customerDgw.EnableHeadersVisualStyles = false;
             this.customerDgw.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.customerDgw.Location = new System.Drawing.Point(0, 46);
+            this.customerDgw.Location = new System.Drawing.Point(0, 90);
             this.customerDgw.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.customerDgw.Name = "customerDgw";
             this.customerDgw.RowHeadersVisible = false;
             this.customerDgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customerDgw.Size = new System.Drawing.Size(900, 584);
+            this.customerDgw.Size = new System.Drawing.Size(1050, 560);
             this.customerDgw.TabIndex = 1;
             this.customerDgw.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.customerDgw.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -123,7 +123,7 @@
             this.siticoneButton1.ForeColor = System.Drawing.Color.White;
             this.siticoneButton1.HoverState.Parent = this.siticoneButton1;
             this.siticoneButton1.Image = ((System.Drawing.Image)(resources.GetObject("siticoneButton1.Image")));
-            this.siticoneButton1.Location = new System.Drawing.Point(852, 11);
+            this.siticoneButton1.Location = new System.Drawing.Point(857, 35);
             this.siticoneButton1.Name = "siticoneButton1";
             this.siticoneButton1.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
             this.siticoneButton1.ShadowDecoration.Parent = this.siticoneButton1;
@@ -139,7 +139,7 @@
             this.Controls.Add(this.customerDgw);
             this.Controls.Add(this.siticoneHtmlLabel1);
             this.Name = "Uc_Customer";
-            this.Size = new System.Drawing.Size(900, 630);
+            this.Size = new System.Drawing.Size(1050, 650);
             this.Load += new System.EventHandler(this.Uc_Customer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.customerDgw)).EndInit();
             this.ResumeLayout(false);

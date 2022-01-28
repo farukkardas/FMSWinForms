@@ -26,20 +26,20 @@ namespace FMSWindows.UserControls.Pending_Order
             {
                 Instance = this;
             }
+        
         }
 
         private void Uc_PendingOrders_Load(object sender, EventArgs e)
         {
             SetDgwProperties();
-            orderDgw.ReadOnly = true;
-            orderDgw.AllowUserToAddRows = false;
         }
 
         private void SetDgwProperties()
         {
             orderDgw.ColumnHeadersVisible = true;
             orderDgw.ColumnHeadersHeight = 20;
-
+            orderDgw.ReadOnly = true;
+            orderDgw.AllowUserToAddRows = false;
             foreach (DataGridViewColumn column in orderDgw.Columns)
             {
                 column.SortMode = DataGridViewColumnSortMode.Automatic;
@@ -54,7 +54,7 @@ namespace FMSWindows.UserControls.Pending_Order
             {
                 orderDgw.Columns.Clear();
                 OrderService orderService = new OrderService();
-                var response = await orderService.GetCustomerDetails();
+                var response = await orderService.GetUserOrders();
                 List<OrderDetail> orderDetail = new List<OrderDetail>();
                 orderDetail = response.Data.Where(d => d.Status == 2).ToList();
                 

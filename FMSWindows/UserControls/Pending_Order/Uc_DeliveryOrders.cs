@@ -54,7 +54,7 @@ namespace FMSWindows.UserControls.Pending_Order
             {
                 OrderService orderService = new OrderService();
 
-                var response = await orderService.GetCustomerDetails();
+                var response = await orderService.GetUserOrders();
 
                 orderDetail = new List<OrderDetail>();
 
@@ -120,7 +120,7 @@ namespace FMSWindows.UserControls.Pending_Order
             {
                 OrderService orderService = new OrderService();
 
-                var response = await orderService.GetCustomerDetails();
+                var response = await orderService.GetUserOrders();
 
                 orderDetail = new List<OrderDetail>();
 

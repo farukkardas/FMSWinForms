@@ -14,6 +14,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -49,6 +49,28 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>bull-market.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.AspNetCore.Http.Features, Version=5.0.13.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
@@ -133,10 +155,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Auth\RegisterModel.cs" />
+    <Compile Include="Models\Constants\Categories.cs" />
     <Compile Include="Models\Constants\Cities.cs" />
     <Compile Include="Models\Constants\Status.cs" />
     <Compile Include="Models\Entities\CustomerDetail.cs" />
     <Compile Include="Models\Entities\OrderDetail.cs" />
+    <Compile Include="Models\Entities\Product.cs" />
     <Compile Include="Models\Entities\ProductOnSale.cs" />
     <Compile Include="Models\ResponseModels\Concrete\ErrorModel.cs" />
     <Compile Include="Models\ResponseModels\Concrete\ListErrorModel.cs" />
@@ -151,6 +175,7 @@
     <Compile Include="Models\ResponseModels\Concrete\SuccessResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Abstract\IOrder.cs" />
     <Compile Include="Services\Abstract\IProduct.cs" />
     <Compile Include="Models\ResponseModels\Abstract\IResult.cs" />
     <Compile Include="Services\AuthService.cs" />
@@ -188,11 +213,11 @@
     <Compile Include="UserControls\Dashboard\Uc_Dashboard.Designer.cs">
       <DependentUpon>Uc_Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\List_Product\Uc_AddListProduct.cs">
+    <Compile Include="UserControls\List_Product\Uc_AddProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\List_Product\Uc_AddListProduct.Designer.cs">
-      <DependentUpon>Uc_AddListProduct.cs</DependentUpon>
+    <Compile Include="UserControls\List_Product\Uc_AddProduct.Designer.cs">
+      <DependentUpon>Uc_AddProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\List_Product\Uc_ListProduct.cs">
       <SubType>UserControl</SubType>
@@ -254,8 +279,8 @@
     <EmbeddedResource Include="UserControls\Dashboard\Uc_Dashboard.resx">
       <DependentUpon>Uc_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\List_Product\Uc_AddListProduct.resx">
-      <DependentUpon>Uc_AddListProduct.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\List_Product\Uc_AddProduct.resx">
+      <DependentUpon>Uc_AddProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\List_Product\Uc_ListProduct.resx">
       <DependentUpon>Uc_ListProduct.cs</DependentUpon>
@@ -302,6 +327,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bull-market.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />

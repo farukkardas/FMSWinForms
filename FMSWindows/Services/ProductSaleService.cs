@@ -1,4 +1,5 @@
 ﻿using FMSWindows.Models;
+using FMSWindows.Models.Entities;
 using FMSWindows.Models.ResponseModels.Concrete;
 using FMSWindows.Services.Abstract;
 using Microsoft.AspNetCore.Http;
@@ -45,11 +46,34 @@ namespace FMSWindows.Services
                 result.Message = deserializeContent.Message;
             }
 
-
             return result;
-
         }
 
+        public async Task<ListResponseModel<Product>> GetUserProducts()
+        {
+            var httpClient = new HttpClient();
+            ListResponseModel<Product> products = new ListResponseModel<Product>();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Program.Jwt);
+            httpClient.DefaultRequestHeaders.Add("securityKey", Program.SecurityKey);
+            httpClient.DefaultRequestHeaders.Add("id", Program.Id.ToString());
 
+
+            var request = await httpClient.GetAsync("http://localhost:5000/api/productsonsale/getuserproducts");
+
+            if (request.Content != null)
+            {
+                var responseContent = await request.Content.ReadAsStringAsync();
+
+                var deserializeContent =
+                    JsonConvert.DeserializeObject<ListResponseModel<Product>>(responseContent);
+
+                if (deserializeContent != null)
+                {
+                    products = deserializeContent;
+                }
+            }
+
+            return products;
+        }
     }
 }

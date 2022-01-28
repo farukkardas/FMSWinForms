@@ -7,13 +7,14 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using FMSWindows.Models;
+using FMSWindows.Services.Abstract;
 using Newtonsoft.Json;
 
 namespace FMSWindows.Services
 {
-    public class OrderService
+    public class OrderService : IOrder
     {
-        public async Task<ListResponseModel<OrderDetail>> GetCustomerDetails()
+        public async Task<ListResponseModel<OrderDetail>> GetUserOrders()
         {
             var client = new HttpClient();
 
