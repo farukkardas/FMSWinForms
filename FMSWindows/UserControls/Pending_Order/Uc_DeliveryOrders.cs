@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FMSWindows.Models;
 using FMSWindows.Models.Constants;
-using FMSWindows.Services;
+using FMSWindows.Services.Abstract;
 
 namespace FMSWindows.UserControls.Pending_Order
 {
@@ -19,9 +13,12 @@ namespace FMSWindows.UserControls.Pending_Order
     {
         public static Uc_DeliveryOrders Instance;
         List<OrderDetail> orderDetail;
+        IOrder orderDal;
         public Uc_DeliveryOrders()
         {
             InitializeComponent();
+          
+
             if (Instance == null)
             {
                 Instance = this;
@@ -30,17 +27,15 @@ namespace FMSWindows.UserControls.Pending_Order
 
         private void Uc_DeliveryOrders_Load(object sender, EventArgs e)
         {
-            SetDgwProperties();
-            deliveryDgw.ReadOnly = true;
-            deliveryDgw.AllowUserToAddRows = false;
-
+                SetDgwProperties();
         }
 
         private void SetDgwProperties()
         {
             deliveryDgw.ColumnHeadersVisible = true;
             deliveryDgw.ColumnHeadersHeight = 20;
-
+            deliveryDgw.ReadOnly = true;
+            deliveryDgw.AllowUserToAddRows = false;
             foreach (DataGridViewColumn column in deliveryDgw.Columns)
             {
                 column.SortMode = DataGridViewColumnSortMode.Automatic;
@@ -52,34 +47,30 @@ namespace FMSWindows.UserControls.Pending_Order
         {
             try
             {
-                OrderService orderService = new OrderService();
-
-                var response = await orderService.GetUserOrders();
-
-                orderDetail = new List<OrderDetail>();
+                orderDal = (IOrder)Program.ServiceProvider.GetService(typeof(IOrder));
+                var response = await orderDal.GetUserOrders();
 
 
-                orderDetail = response.Data.Where(o => o.Status == 5).ToList();
-
-
+                orderDetail =  response.Data.Where(o => o.Status == 5).ToList();
                 if (orderDetail.Count <= 0)
                 {
+                    emptyPicture.Visible = true;
                     return;
                 }
+                emptyPicture.Visible = false;
 
                 //Burada manuel yaptım verileri manipüle etmek istiyordum
                 deliveryDgw.Columns.Clear();
-                deliveryDgw.Columns.Clear();
                 deliveryDgw.Columns.Add("Id", "Id");
-                deliveryDgw.Columns.Add("ProductId", "Product Id");
-                deliveryDgw.Columns.Add("ProductName", "Product Name");
+                deliveryDgw.Columns.Add("Product Id", "Product Id");
+                deliveryDgw.Columns.Add("Product Name", "Product Name");
                 deliveryDgw.Columns.Add("Price", "Price");
-                deliveryDgw.Columns.Add("CustomerName", "Customer Name");
+                deliveryDgw.Columns.Add("Customer Name", "Customer Name");
                 deliveryDgw.Columns.Add("City", "City");
                 deliveryDgw.Columns.Add("District", "District");
                 deliveryDgw.Columns.Add("Address", "Delivery Address");
                 deliveryDgw.Columns.Add("BoughtDate", "Bought Date");
-                deliveryDgw.Columns.Add("DeliveryNo", "Delivery No");
+                deliveryDgw.Columns.Add("Delivery No", "Delivery No");
                 deliveryDgw.Columns.Add("Status", "Status");
 
                 deliveryDgw.Rows.Add(orderDetail.Count);
@@ -105,7 +96,8 @@ namespace FMSWindows.UserControls.Pending_Order
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                MessageBox.Show(e.ToString());
+
             }
         }
 
@@ -118,9 +110,10 @@ namespace FMSWindows.UserControls.Pending_Order
 
             try
             {
-                OrderService orderService = new OrderService();
 
-                var response = await orderService.GetUserOrders();
+                orderDal = (IOrder)Program.ServiceProvider.GetService(typeof(IOrder));
+
+                var response = await orderDal.GetUserOrders();
 
                 orderDetail = new List<OrderDetail>();
 
@@ -168,7 +161,7 @@ namespace FMSWindows.UserControls.Pending_Order
             }
             catch (Exception x)
             {
-                Console.WriteLine(x);
+                MessageBox.Show(x.ToString());
             }
 
 

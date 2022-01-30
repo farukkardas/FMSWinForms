@@ -1,5 +1,6 @@
 ﻿using FMSWindows.Services;
 using FMSWindows.Services.Abstract;
+using FMSWindows.UserControls.Dashboard;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,6 @@ namespace FMSWindows
             Application.SetCompatibleTextRenderingDefault(false);
             ConfigureServices();
             Application.Run(new Form1());
-
         }
     }
 }

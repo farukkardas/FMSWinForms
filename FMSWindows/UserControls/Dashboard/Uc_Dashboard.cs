@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FMSWindows.Models.Constants;
 using FMSWindows.Services;
 using FMSWindows.UserControls.Pending_Order;
 using Siticone.Desktop.UI.WinForms;
@@ -31,21 +32,16 @@ namespace FMSWindows.UserControls.Dashboard
             {
                 UserService userService = new UserService();
                 var response = await userService.GetUserDetails();
-                chart1.DataSource = response.Data;
 
                 saleAmountLabel.Text = response.Data.SuccessfulSales.ToString() + @" Piece";
                 canceledLabel.Text = response.Data.CanceledOrders.ToString() + @" Piece";
                 pendingLabel.Text = response.Data.PendingOrders.ToString() + @" Piece";
                 deliveryLabel.Text = response.Data.DeliveryOrders.ToString() + @" Piece";
                 approvedLabel.Text = response.Data.ApprovedOrders.ToString() + @" Piece";
+                profitText.Text = response.Data.Profit.ToString() + " TL";
+                nameTxt.Text = $"{response.Data.FirstName} {response.Data.LastName}";
+                cityName.Text = $"{Cities.cities[(int)response.Data.City]}";
 
-                chart1.Series["Animals"].Points.Clear();
-                chart1.Series["Animals"].Points.AddXY("Cow", response.Data.CowCount);
-                chart1.Series["Animals"].Points.AddXY("Sheep", response.Data.SheepCount);
-                chart1.Series["Animals"].Points.AddXY("Calf", response.Data.CalfCount);
-                chart1.Series["Animals"].Points.AddXY("Bull", response.Data.BullCount);
-                chart1.Series["Animals"].Points.AddXY("Total", response.Data.AnimalCount);
-               
             }
             catch (Exception e)
             {
@@ -59,14 +55,10 @@ namespace FMSWindows.UserControls.Dashboard
 
         private void Uc_Dashboard_Load(object sender, EventArgs e)
         {
-            saleAmountLabel.BackColor = Color.Transparent;
             
         }
 
-        private void siticoneCustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
+       
 
         
         private void siticoneCustomGradientPanel2_DoubleClick(object sender, EventArgs e)

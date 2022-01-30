@@ -16,5 +16,10 @@ namespace FMSWindows.UserControls.Animals
         {
             InitializeComponent();
         }
+
+        private void siticoneCustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

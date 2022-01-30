@@ -45,6 +45,7 @@
             // 
             this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Ebrima", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.siticoneHtmlLabel1.IsSelectionEnabled = false;
             this.siticoneHtmlLabel1.Location = new System.Drawing.Point(183, 16);
             this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
             this.siticoneHtmlLabel1.Size = new System.Drawing.Size(71, 27);
@@ -133,6 +134,7 @@
             // 
             this.Email.BackColor = System.Drawing.Color.Transparent;
             this.Email.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Email.IsSelectionEnabled = false;
             this.Email.Location = new System.Drawing.Point(125, 56);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(67, 20);
@@ -143,6 +145,7 @@
             // 
             this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.siticoneHtmlLabel2.IsSelectionEnabled = false;
             this.siticoneHtmlLabel2.Location = new System.Drawing.Point(125, 114);
             this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
             this.siticoneHtmlLabel2.Size = new System.Drawing.Size(65, 20);
@@ -153,6 +156,7 @@
             // 
             this.siticoneHtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel3.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.siticoneHtmlLabel3.IsSelectionEnabled = false;
             this.siticoneHtmlLabel3.Location = new System.Drawing.Point(125, 231);
             this.siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
             this.siticoneHtmlLabel3.Size = new System.Drawing.Size(57, 20);
@@ -163,6 +167,7 @@
             // 
             this.siticoneHtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel4.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.siticoneHtmlLabel4.IsSelectionEnabled = false;
             this.siticoneHtmlLabel4.Location = new System.Drawing.Point(125, 172);
             this.siticoneHtmlLabel4.Name = "siticoneHtmlLabel4";
             this.siticoneHtmlLabel4.Size = new System.Drawing.Size(35, 20);

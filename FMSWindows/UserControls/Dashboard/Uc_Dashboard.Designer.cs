@@ -29,12 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Uc_Dashboard));
             this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.siticoneBorderlessForm1 = new Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm(this.components);
             this.saleAmountLabel = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneCustomGradientPanel1 = new Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel();
@@ -56,7 +52,13 @@
             this.siticoneHtmlLabel7 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticonePictureBox5 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.deliveryLabel = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.siticoneCustomGradientPanel6 = new Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel();
+            this.siticoneHtmlLabel6 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticonePictureBox6 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
+            this.profitText = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.siticoneCustomGradientPanel7 = new Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel();
+            this.nameTxt = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
+            this.cityName = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneCustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             this.siticoneCustomGradientPanel2.SuspendLayout();
@@ -67,12 +69,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox4)).BeginInit();
             this.siticoneCustomGradientPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox5)).BeginInit();
+            this.siticoneCustomGradientPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox6)).BeginInit();
+            this.siticoneCustomGradientPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // siticoneHtmlLabel1
             // 
             this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Novel Sans Pro Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siticoneHtmlLabel1.IsContextMenuEnabled = false;
             this.siticoneHtmlLabel1.IsSelectionEnabled = false;
             this.siticoneHtmlLabel1.Location = new System.Drawing.Point(3, 3);
@@ -80,24 +85,6 @@
             this.siticoneHtmlLabel1.Size = new System.Drawing.Size(108, 27);
             this.siticoneHtmlLabel1.TabIndex = 0;
             this.siticoneHtmlLabel1.Text = "Dashboard";
-            // 
-            // chart1
-            // 
-            this.chart1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(746, 408);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Animals";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(291, 191);
-            this.chart1.TabIndex = 1;
-            this.chart1.Text = "chart1";
             // 
             // siticoneBorderlessForm1
             // 
@@ -123,7 +110,7 @@
             this.siticoneCustomGradientPanel1.Controls.Add(this.siticoneHtmlLabel3);
             this.siticoneCustomGradientPanel1.Controls.Add(this.siticonePictureBox1);
             this.siticoneCustomGradientPanel1.Controls.Add(this.saleAmountLabel);
-            this.siticoneCustomGradientPanel1.FillColor = System.Drawing.Color.LimeGreen;
+            this.siticoneCustomGradientPanel1.FillColor = System.Drawing.Color.GreenYellow;
             this.siticoneCustomGradientPanel1.FillColor2 = System.Drawing.Color.LightGray;
             this.siticoneCustomGradientPanel1.FillColor3 = System.Drawing.Color.LimeGreen;
             this.siticoneCustomGradientPanel1.Location = new System.Drawing.Point(23, 60);
@@ -131,7 +118,6 @@
             this.siticoneCustomGradientPanel1.ShadowDecoration.Parent = this.siticoneCustomGradientPanel1;
             this.siticoneCustomGradientPanel1.Size = new System.Drawing.Size(297, 126);
             this.siticoneCustomGradientPanel1.TabIndex = 4;
-            this.siticoneCustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.siticoneCustomGradientPanel1_Paint);
             this.siticoneCustomGradientPanel1.MouseEnter += new System.EventHandler(this.siticoneCustomGradientPanel1_MouseEnter);
             this.siticoneCustomGradientPanel1.MouseLeave += new System.EventHandler(this.siticoneCustomGradientPanel1_MouseLeave);
             // 
@@ -393,22 +379,119 @@
             this.deliveryLabel.TabIndex = 3;
             this.deliveryLabel.Text = "SalesAmount";
             // 
+            // siticoneCustomGradientPanel6
+            // 
+            this.siticoneCustomGradientPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.siticoneCustomGradientPanel6.Controls.Add(this.siticoneHtmlLabel6);
+            this.siticoneCustomGradientPanel6.Controls.Add(this.siticonePictureBox6);
+            this.siticoneCustomGradientPanel6.Controls.Add(this.profitText);
+            this.siticoneCustomGradientPanel6.FillColor = System.Drawing.Color.LimeGreen;
+            this.siticoneCustomGradientPanel6.FillColor2 = System.Drawing.Color.LightGray;
+            this.siticoneCustomGradientPanel6.FillColor3 = System.Drawing.Color.LimeGreen;
+            this.siticoneCustomGradientPanel6.Location = new System.Drawing.Point(23, 435);
+            this.siticoneCustomGradientPanel6.Name = "siticoneCustomGradientPanel6";
+            this.siticoneCustomGradientPanel6.ShadowDecoration.Parent = this.siticoneCustomGradientPanel6;
+            this.siticoneCustomGradientPanel6.Size = new System.Drawing.Size(510, 126);
+            this.siticoneCustomGradientPanel6.TabIndex = 8;
+            // 
+            // siticoneHtmlLabel6
+            // 
+            this.siticoneHtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel6.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.siticoneHtmlLabel6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.siticoneHtmlLabel6.IsContextMenuEnabled = false;
+            this.siticoneHtmlLabel6.IsSelectionEnabled = false;
+            this.siticoneHtmlLabel6.Location = new System.Drawing.Point(18, 14);
+            this.siticoneHtmlLabel6.Name = "siticoneHtmlLabel6";
+            this.siticoneHtmlLabel6.Size = new System.Drawing.Size(119, 29);
+            this.siticoneHtmlLabel6.TabIndex = 5;
+            this.siticoneHtmlLabel6.Text = "Total Profit";
+            // 
+            // siticonePictureBox6
+            // 
+            this.siticonePictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.siticonePictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.siticonePictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("siticonePictureBox6.Image")));
+            this.siticonePictureBox6.ImageRotate = 0F;
+            this.siticonePictureBox6.Location = new System.Drawing.Point(443, 59);
+            this.siticonePictureBox6.Name = "siticonePictureBox6";
+            this.siticonePictureBox6.ShadowDecoration.Parent = this.siticonePictureBox6;
+            this.siticonePictureBox6.Size = new System.Drawing.Size(64, 64);
+            this.siticonePictureBox6.TabIndex = 4;
+            this.siticonePictureBox6.TabStop = false;
+            // 
+            // profitText
+            // 
+            this.profitText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.profitText.BackColor = System.Drawing.Color.Transparent;
+            this.profitText.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profitText.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.profitText.IsContextMenuEnabled = false;
+            this.profitText.IsSelectionEnabled = false;
+            this.profitText.Location = new System.Drawing.Point(18, 81);
+            this.profitText.Name = "profitText";
+            this.profitText.Size = new System.Drawing.Size(122, 27);
+            this.profitText.TabIndex = 3;
+            this.profitText.Text = "SalesAmount";
+            // 
+            // siticoneCustomGradientPanel7
+            // 
+            this.siticoneCustomGradientPanel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.siticoneCustomGradientPanel7.BorderColor = System.Drawing.Color.DimGray;
+            this.siticoneCustomGradientPanel7.Controls.Add(this.nameTxt);
+            this.siticoneCustomGradientPanel7.Controls.Add(this.cityName);
+            this.siticoneCustomGradientPanel7.FillColor = System.Drawing.Color.Gray;
+            this.siticoneCustomGradientPanel7.FillColor2 = System.Drawing.Color.Gray;
+            this.siticoneCustomGradientPanel7.FillColor3 = System.Drawing.Color.DarkGray;
+            this.siticoneCustomGradientPanel7.Location = new System.Drawing.Point(740, 435);
+            this.siticoneCustomGradientPanel7.Name = "siticoneCustomGradientPanel7";
+            this.siticoneCustomGradientPanel7.ShadowDecoration.Parent = this.siticoneCustomGradientPanel7;
+            this.siticoneCustomGradientPanel7.Size = new System.Drawing.Size(297, 126);
+            this.siticoneCustomGradientPanel7.TabIndex = 9;
+            // 
+            // nameTxt
+            // 
+            this.nameTxt.BackColor = System.Drawing.Color.Transparent;
+            this.nameTxt.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.nameTxt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.nameTxt.IsContextMenuEnabled = false;
+            this.nameTxt.IsSelectionEnabled = false;
+            this.nameTxt.Location = new System.Drawing.Point(18, 14);
+            this.nameTxt.Name = "nameTxt";
+            this.nameTxt.Size = new System.Drawing.Size(66, 29);
+            this.nameTxt.TabIndex = 5;
+            this.nameTxt.Text = "Name";
+            // 
+            // cityName
+            // 
+            this.cityName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cityName.BackColor = System.Drawing.Color.Transparent;
+            this.cityName.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cityName.IsContextMenuEnabled = false;
+            this.cityName.IsSelectionEnabled = false;
+            this.cityName.Location = new System.Drawing.Point(18, 81);
+            this.cityName.Name = "cityName";
+            this.cityName.Size = new System.Drawing.Size(37, 27);
+            this.cityName.TabIndex = 3;
+            this.cityName.Text = "City";
+            // 
             // Uc_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.siticoneCustomGradientPanel7);
+            this.Controls.Add(this.siticoneCustomGradientPanel6);
             this.Controls.Add(this.siticoneCustomGradientPanel5);
             this.Controls.Add(this.siticoneCustomGradientPanel4);
             this.Controls.Add(this.siticoneCustomGradientPanel3);
             this.Controls.Add(this.siticoneCustomGradientPanel2);
             this.Controls.Add(this.siticoneCustomGradientPanel1);
-            this.Controls.Add(this.chart1);
             this.Controls.Add(this.siticoneHtmlLabel1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Name = "Uc_Dashboard";
             this.Size = new System.Drawing.Size(1050, 630);
             this.Load += new System.EventHandler(this.Uc_Dashboard_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.siticoneCustomGradientPanel1.ResumeLayout(false);
             this.siticoneCustomGradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).EndInit();
@@ -424,6 +507,11 @@
             this.siticoneCustomGradientPanel5.ResumeLayout(false);
             this.siticoneCustomGradientPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox5)).EndInit();
+            this.siticoneCustomGradientPanel6.ResumeLayout(false);
+            this.siticoneCustomGradientPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox6)).EndInit();
+            this.siticoneCustomGradientPanel7.ResumeLayout(false);
+            this.siticoneCustomGradientPanel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,7 +520,6 @@
         #endregion
 
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm siticoneBorderlessForm1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel saleAmountLabel;
         private Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel siticoneCustomGradientPanel1;
@@ -454,5 +541,12 @@
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel7;
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox siticonePictureBox5;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel deliveryLabel;
+        private Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel siticoneCustomGradientPanel6;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel6;
+        private Siticone.Desktop.UI.WinForms.SiticonePictureBox siticonePictureBox6;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel profitText;
+        private Siticone.Desktop.UI.WinForms.SiticoneCustomGradientPanel siticoneCustomGradientPanel7;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel nameTxt;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel cityName;
     }
 }

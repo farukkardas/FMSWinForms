@@ -37,8 +37,10 @@
             this.siticoneTextBox1 = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.deliveryDgw = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
+            this.emptyPicture = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDgw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // siticoneHtmlLabel1
@@ -155,10 +157,22 @@
             this.deliveryDgw.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.deliveryDgw.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // emptyPicture
+            // 
+            this.emptyPicture.Image = ((System.Drawing.Image)(resources.GetObject("emptyPicture.Image")));
+            this.emptyPicture.ImageRotate = 0F;
+            this.emptyPicture.Location = new System.Drawing.Point(350, 250);
+            this.emptyPicture.Name = "emptyPicture";
+            this.emptyPicture.ShadowDecoration.Parent = this.emptyPicture;
+            this.emptyPicture.Size = new System.Drawing.Size(250, 250);
+            this.emptyPicture.TabIndex = 14;
+            this.emptyPicture.TabStop = false;
+            // 
             // Uc_DeliveryOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.emptyPicture);
             this.Controls.Add(this.deliveryDgw);
             this.Controls.Add(this.siticoneHtmlLabel2);
             this.Controls.Add(this.siticoneTextBox1);
@@ -169,6 +183,7 @@
             this.Load += new System.EventHandler(this.Uc_DeliveryOrders_Load);
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deliveryDgw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptyPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,5 +195,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox siticoneTextBox1;
         private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView deliveryDgw;
+        private Siticone.Desktop.UI.WinForms.SiticonePictureBox emptyPicture;
     }
 }

@@ -50,12 +50,12 @@
             this.dashboardPanelButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.uc_Dashboard1 = new FMSWindows.UserControls.Dashboard.Uc_Dashboard();
             this.uc_SalesData1 = new FMSWindows.UserControls.Sales_Data.Uc_SalesData();
-            this.uc_Animals1 = new FMSWindows.UserControls.Animals.Uc_Animals();
             this.uc_Customer1 = new FMSWindows.UserControls.Customer.Uc_Customer();
             this.uc_ApprovedOrders1 = new FMSWindows.UserControls.Pending_Order.Uc_ApprovedOrders();
-            this.uc_DeliveryOrders1 = new FMSWindows.UserControls.Pending_Order.Uc_DeliveryOrders();
             this.uc_PendingOrders1 = new FMSWindows.UserControls.Pending_Order.Uc_PendingOrders();
             this.uc_ListProduct1 = new FMSWindows.UserControls.List_Product.Uc_ListProduct();
+            this.uc_Animals1 = new FMSWindows.UserControls.Animals.Uc_Animals();
+            this.uc_DeliveryOrders1 = new FMSWindows.UserControls.Pending_Order.Uc_DeliveryOrders();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -493,11 +493,15 @@
             // 
             // uc_Dashboard1
             // 
+            this.uc_Dashboard1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.uc_Dashboard1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.uc_Dashboard1.Location = new System.Drawing.Point(206, 47);
             this.uc_Dashboard1.Name = "uc_Dashboard1";
             this.uc_Dashboard1.Size = new System.Drawing.Size(1050, 630);
             this.uc_Dashboard1.TabIndex = 4;
+            this.uc_Dashboard1.Load += new System.EventHandler(this.uc_Dashboard1_Load);
             // 
             // uc_SalesData1
             // 
@@ -509,17 +513,6 @@
             this.uc_SalesData1.Name = "uc_SalesData1";
             this.uc_SalesData1.Size = new System.Drawing.Size(1050, 650);
             this.uc_SalesData1.TabIndex = 5;
-            // 
-            // uc_Animals1
-            // 
-            this.uc_Animals1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uc_Animals1.Location = new System.Drawing.Point(206, 47);
-            this.uc_Animals1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.uc_Animals1.Name = "uc_Animals1";
-            this.uc_Animals1.Size = new System.Drawing.Size(1050, 650);
-            this.uc_Animals1.TabIndex = 10;
             // 
             // uc_Customer1
             // 
@@ -543,17 +536,6 @@
             this.uc_ApprovedOrders1.Size = new System.Drawing.Size(1050, 650);
             this.uc_ApprovedOrders1.TabIndex = 8;
             // 
-            // uc_DeliveryOrders1
-            // 
-            this.uc_DeliveryOrders1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uc_DeliveryOrders1.Location = new System.Drawing.Point(206, 47);
-            this.uc_DeliveryOrders1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.uc_DeliveryOrders1.Name = "uc_DeliveryOrders1";
-            this.uc_DeliveryOrders1.Size = new System.Drawing.Size(1050, 650);
-            this.uc_DeliveryOrders1.TabIndex = 7;
-            // 
             // uc_PendingOrders1
             // 
             this.uc_PendingOrders1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -576,6 +558,23 @@
             this.uc_ListProduct1.Size = new System.Drawing.Size(1050, 650);
             this.uc_ListProduct1.TabIndex = 11;
             // 
+            // uc_Animals1
+            // 
+            this.uc_Animals1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.uc_Animals1.Location = new System.Drawing.Point(206, 47);
+            this.uc_Animals1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.uc_Animals1.Name = "uc_Animals1";
+            this.uc_Animals1.Size = new System.Drawing.Size(1050, 650);
+            this.uc_Animals1.TabIndex = 12;
+            // 
+            // uc_DeliveryOrders1
+            // 
+            this.uc_DeliveryOrders1.Location = new System.Drawing.Point(207, 48);
+            this.uc_DeliveryOrders1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.uc_DeliveryOrders1.Name = "uc_DeliveryOrders1";
+            this.uc_DeliveryOrders1.Size = new System.Drawing.Size(1050, 650);
+            this.uc_DeliveryOrders1.TabIndex = 13;
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -587,12 +586,12 @@
             this.Controls.Add(this.siticoneGradientCircleButton3);
             this.Controls.Add(this.siticoneGradientCircleButton1);
             this.Controls.Add(this.uc_SalesData1);
-            this.Controls.Add(this.uc_Animals1);
             this.Controls.Add(this.uc_Customer1);
             this.Controls.Add(this.uc_ApprovedOrders1);
-            this.Controls.Add(this.uc_DeliveryOrders1);
             this.Controls.Add(this.uc_PendingOrders1);
             this.Controls.Add(this.uc_ListProduct1);
+            this.Controls.Add(this.uc_Animals1);
+            this.Controls.Add(this.uc_DeliveryOrders1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -628,11 +627,11 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton approvedOrdersButton;
         private UserControls.Dashboard.Uc_Dashboard uc_Dashboard1;
         private UserControls.Sales_Data.Uc_SalesData uc_SalesData1;
-        private UserControls.Animals.Uc_Animals uc_Animals1;
         private UserControls.Customer.Uc_Customer uc_Customer1;
         private UserControls.Pending_Order.Uc_ApprovedOrders uc_ApprovedOrders1;
-        private UserControls.Pending_Order.Uc_DeliveryOrders uc_DeliveryOrders1;
         private UserControls.Pending_Order.Uc_PendingOrders uc_PendingOrders1;
         private UserControls.List_Product.Uc_ListProduct uc_ListProduct1;
+        private UserControls.Animals.Uc_Animals uc_Animals1;
+        private UserControls.Pending_Order.Uc_DeliveryOrders uc_DeliveryOrders1;
     }
 }

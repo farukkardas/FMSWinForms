@@ -19,7 +19,6 @@ namespace FMSWindows.Services
             var client = new HttpClient();
 
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Program.Jwt);
-
             client.DefaultRequestHeaders.Add("securityKey", Program.SecurityKey);
             client.DefaultRequestHeaders.Add("id", Program.Id.ToString());
 
@@ -88,6 +87,41 @@ namespace FMSWindows.Services
 
             var post = await client.PutAsync($"http://localhost:5000/api/orders/addcargono", formContent);
 
+
+            ResponseModel responseModel = new ResponseModel();
+
+            if (post.Content != null)
+            {
+                var responseContent = await post.Content.ReadAsStringAsync();
+
+                var deserializeContent =
+                    JsonConvert.DeserializeObject<ResponseModel>(responseContent);
+
+                if (deserializeContent != null)
+                {
+                    responseModel.Message = deserializeContent.Message;
+                    responseModel.Success = deserializeContent.Success;
+                }
+            }
+
+            return responseModel;
+
+        }
+
+        public async Task<ResponseModel> CancelOrder(string orderId)
+        {
+            var client = new HttpClient();
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Program.Jwt);
+            client.DefaultRequestHeaders.Add("securityKey", Program.SecurityKey);
+            client.DefaultRequestHeaders.Add("id", Program.Id.ToString());
+
+            var formContent = new FormUrlEncodedContent(new[]
+     {
+                 new KeyValuePair<string, string>("orderId", orderId)
+            });
+
+            var post = await client.PutAsync($"http://localhost:5000/api/orders/cancelorder", formContent);
 
             ResponseModel responseModel = new ResponseModel();
 

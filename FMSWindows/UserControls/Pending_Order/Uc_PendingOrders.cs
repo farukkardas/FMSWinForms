@@ -11,6 +11,7 @@ using ExampleCode;
 using FMSWindows.Models;
 using FMSWindows.Models.Constants;
 using FMSWindows.Services;
+using FMSWindows.Services.Abstract;
 using Siticone.Desktop.UI.WinForms;
 
 namespace FMSWindows.UserControls.Pending_Order
@@ -18,7 +19,9 @@ namespace FMSWindows.UserControls.Pending_Order
     public partial class Uc_PendingOrders : UserControl
     {
         public static Uc_PendingOrders Instance;
+        List<OrderDetail> orderDetail;
         private string _orderValue;
+        IOrder orderDal;
         public Uc_PendingOrders()
         {
             InitializeComponent();
@@ -32,6 +35,7 @@ namespace FMSWindows.UserControls.Pending_Order
         private void Uc_PendingOrders_Load(object sender, EventArgs e)
         {
             SetDgwProperties();
+            
         }
 
         private void SetDgwProperties()
@@ -52,30 +56,35 @@ namespace FMSWindows.UserControls.Pending_Order
         {
             try
             {
-                orderDgw.Columns.Clear();
-                OrderService orderService = new OrderService();
-                var response = await orderService.GetUserOrders();
-                List<OrderDetail> orderDetail = new List<OrderDetail>();
+
+                orderDal = (IOrder)Program.ServiceProvider.GetService(typeof(IOrder));
+
+                var response = await orderDal.GetUserOrders();
+               
+                orderDetail = new List<OrderDetail>();
+
                 orderDetail = response.Data.Where(d => d.Status == 2).ToList();
-                
+
+
                 if (orderDetail.Count <= 0)
                 {
+                    orderDgw.Columns.Clear();
                     emptyPicture.Visible = true;
                     return;
                 }
 
                 emptyPicture.Visible = false;
                 //Burada manuel yaptım verileri manipüle etmek istiyordum
-               
+                orderDgw.Columns.Clear();
                 orderDgw.Columns.Add("Id", "Id");
-                orderDgw.Columns.Add("ProductId", "ProductId");
-                orderDgw.Columns.Add("ProductName", "ProductName");
+                orderDgw.Columns.Add("Product Id", "Product Id");
+                orderDgw.Columns.Add("Product Name", "Product Name");
                 orderDgw.Columns.Add("Price", "Price");
-                orderDgw.Columns.Add("CustomerName", "CustomerName");
-                orderDgw.Columns.Add("DeliveryCity", "DeliveryCity");
-                orderDgw.Columns.Add("DeliveryDistrict", "DeliveryDistrict");
-                orderDgw.Columns.Add("DeliveryAddress", "DeliveryAddress");
-                orderDgw.Columns.Add("BoughtDate", "BoughtDate");
+                orderDgw.Columns.Add("Customer Name", "Customer Name");
+                orderDgw.Columns.Add("Delivery City", "Delivery City");
+                orderDgw.Columns.Add("Delivery District", "Delivery District");
+                orderDgw.Columns.Add("Delivery Address", "Delivery Address");
+                orderDgw.Columns.Add("Bought Date", "Bought Date");
                 orderDgw.Columns.Add("Status", "Status");
 
                 orderDgw.Rows.Add(orderDetail.Count);
@@ -124,17 +133,46 @@ namespace FMSWindows.UserControls.Pending_Order
                     messageDialog.Show();
                     return;
                 }
-                OrderService orderService = new OrderService();
-                var response = await orderService.ApproveOrder(_orderValue);
+                var response = await orderDal.ApproveOrder(_orderValue);
                 GetPendingOrders();
                 SiticoneMessageDialog siticoneMessageDialog = new SiticoneMessageDialog();
                 siticoneMessageDialog.Text = response.Message;
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception);
-                throw;
+                SiticoneMessageDialog siticoneMessageDialog = new SiticoneMessageDialog();
+                siticoneMessageDialog.Text = $"Error when approve product : {exception}";
+                
             }
+        }
+
+        private async void siticoneButton2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (String.IsNullOrEmpty(_orderValue))
+                {
+                    SiticoneMessageDialog messageDialog = new SiticoneMessageDialog();
+                    messageDialog.Text = "Please select a row!";
+                    messageDialog.Show();
+                    return;
+                }
+
+                var response = await orderDal.CancelOrder(_orderValue);
+                SiticoneMessageDialog siticoneMessageDialog = new SiticoneMessageDialog();
+                siticoneMessageDialog.Text = response.Message;
+                siticoneMessageDialog.Show();
+                GetPendingOrders();
+
+
+            }
+            catch (Exception exception)
+            {
+                SiticoneMessageDialog siticoneMessageDialog = new SiticoneMessageDialog();
+                siticoneMessageDialog.Text = $"Error when approve cancelling product : {exception}";
+            }
+           
+
         }
     }
 }

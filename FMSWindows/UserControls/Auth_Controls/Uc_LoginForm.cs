@@ -77,7 +77,6 @@ namespace FMSWindows.UserControls
                     else if (!response.Success)
                     {
                         siticoneMessageDialog.Style = MessageDialogStyle.Default;
-                        this.SendToBack();
                         siticoneMessageDialog.Icon = MessageDialogIcon.Error;
 
                         siticoneMessageDialog.Show(response.Message, @"Error");
@@ -89,7 +88,6 @@ namespace FMSWindows.UserControls
                     {
                         siticoneMessageDialog.Style = MessageDialogStyle.Default;
                         siticoneMessageDialog.Icon = MessageDialogIcon.Error;
-                        this.SendToBack();
                         siticoneMessageDialog.Show(@"Network error! Error Status: 500", @"Error");
                         siticoneButton1.Enabled = true;
                     }

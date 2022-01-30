@@ -39,8 +39,8 @@
             this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneCircleButton1 = new Siticone.Desktop.UI.WinForms.SiticoneCircleButton();
-            this.uc_RegisterForm1 = new FMSWindows.Uc_RegisterForm();
             this.uc_LoginForm1 = new FMSWindows.UserControls.Uc_LoginForm();
+            this.uc_RegisterForm1 = new FMSWindows.Uc_RegisterForm();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,6 +102,7 @@
             // 
             this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siticoneHtmlLabel1.IsSelectionEnabled = false;
             this.siticoneHtmlLabel1.Location = new System.Drawing.Point(310, 12);
             this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
             this.siticoneHtmlLabel1.Size = new System.Drawing.Size(43, 26);
@@ -155,6 +156,14 @@
             this.siticoneCircleButton1.Text = "siticoneCircleButton1";
             this.siticoneCircleButton1.Click += new System.EventHandler(this.siticoneCircleButton1_Click);
             // 
+            // uc_LoginForm1
+            // 
+            this.uc_LoginForm1.Location = new System.Drawing.Point(254, 38);
+            this.uc_LoginForm1.Name = "uc_LoginForm1";
+            this.uc_LoginForm1.Size = new System.Drawing.Size(450, 350);
+            this.uc_LoginForm1.TabIndex = 10;
+            this.uc_LoginForm1.Load += new System.EventHandler(this.uc_LoginForm1_Load);
+            // 
             // uc_RegisterForm1
             // 
             this.uc_RegisterForm1.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -162,13 +171,6 @@
             this.uc_RegisterForm1.Name = "uc_RegisterForm1";
             this.uc_RegisterForm1.Size = new System.Drawing.Size(450, 350);
             this.uc_RegisterForm1.TabIndex = 9;
-            // 
-            // uc_LoginForm1
-            // 
-            this.uc_LoginForm1.Location = new System.Drawing.Point(254, 38);
-            this.uc_LoginForm1.Name = "uc_LoginForm1";
-            this.uc_LoginForm1.Size = new System.Drawing.Size(450, 350);
-            this.uc_LoginForm1.TabIndex = 10;
             // 
             // Form1
             // 

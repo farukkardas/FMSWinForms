@@ -99,18 +99,19 @@ namespace FMSWindows.UserControls.Pending_Order
                 //Burada manuel yaptım verileri manipüle etmek istiyordum
                 approvedOrderDgw.Columns.Clear();
                 approvedOrderDgw.Columns.Add("Id", "Id");
-                approvedOrderDgw.Columns.Add("ProductId", "ProductId");
-                approvedOrderDgw.Columns.Add("ProductName", "ProductName");
+                approvedOrderDgw.Columns.Add("Product Id", "Product Id");
+                approvedOrderDgw.Columns.Add("Product Name", "Product Name");
                 approvedOrderDgw.Columns.Add("Price", "Price");
-                approvedOrderDgw.Columns.Add("CustomerName", "CustomerName");
-                approvedOrderDgw.Columns.Add("DeliveryCity", "DeliveryCity");
-                approvedOrderDgw.Columns.Add("DeliveryDistrict", "DeliveryDistrict");
-                approvedOrderDgw.Columns.Add("DeliveryAddress", "DeliveryAddress");
-                approvedOrderDgw.Columns.Add("BoughtDate", "BoughtDate");
+                approvedOrderDgw.Columns.Add("Customer Name", "Customer Name");
+                approvedOrderDgw.Columns.Add("Delivery City", "City");
+                approvedOrderDgw.Columns.Add("Delivery District", "District");
+                approvedOrderDgw.Columns.Add("Delivery Address", "Address");
+                approvedOrderDgw.Columns.Add("Date", "Date");
                 approvedOrderDgw.Columns.Add("Status", "Status");
 
 
                 approvedOrderDgw.Rows.Add(orderDetail.Count);
+         
                 for (int i = 0; i < orderDetail.Count; i++)
                 {
                     for (int j = 0; j < approvedOrderDgw.Rows.Count; j++)
@@ -124,7 +125,7 @@ namespace FMSWindows.UserControls.Pending_Order
                         approvedOrderDgw.Rows[j].Cells[6].Value = orderDetail[j].DeliveryDistrict.ToUpper();
                         approvedOrderDgw.Rows[j].Cells[7].Value = orderDetail[j].DeliveryAddress.ToUpper();
                         approvedOrderDgw.Rows[j].Cells[8].Value = orderDetail[j].BoughtDate;
-                        approvedOrderDgw.Rows[j].Cells[9].Value = "APPROVED";
+                        approvedOrderDgw.Rows[j].Cells[9].Value = Status.status[orderDetail[j].Status].ToUpper();
                     }
                 }
 
@@ -132,7 +133,7 @@ namespace FMSWindows.UserControls.Pending_Order
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+               MessageBox.Show(e.ToString());
             }
         }
 

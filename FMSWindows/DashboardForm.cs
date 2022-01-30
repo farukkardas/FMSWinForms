@@ -63,8 +63,9 @@ namespace FMSWindows
 
         private void pendingOrdersButton_Click(object sender, EventArgs e)
         {
-            uc_PendingOrders1.BringToFront();
             Uc_PendingOrders.Instance.GetPendingOrders();
+            uc_PendingOrders1.BringToFront();
+
         }
 
         private void salesDataButton_Click(object sender, EventArgs e)
@@ -105,17 +106,21 @@ namespace FMSWindows
         {
             Uc_Dashboard.Instance.GetUserDetails();
             this.MinimumSize = this.Size;
-            
-
         }
 
         private void siticoneButton5_Click(object sender, EventArgs e)
         {
-            uc_DeliveryOrders1.BringToFront();
             Uc_DeliveryOrders.Instance.GetDeliveryOrders();
+            uc_DeliveryOrders1.BringToFront();
+           
         }
 
         private void uc_AddProduct1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uc_Dashboard1_Load(object sender, EventArgs e)
         {
 
         }

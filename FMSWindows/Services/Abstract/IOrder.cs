@@ -12,6 +12,6 @@ namespace FMSWindows.Services.Abstract
         Task<ListResponseModel<OrderDetail>> GetUserOrders();
         Task<ResponseModel> ApproveOrder(string orderId);
         Task<ResponseModel> AddDeliveryNo(string order, string deliveryNo);
-
+        Task<ResponseModel> CancelOrder(string orderId);
     }
 }
