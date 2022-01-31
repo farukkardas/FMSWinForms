@@ -11,6 +11,7 @@ using FMSWindows.UserControls.Customer;
 using FMSWindows.UserControls.Dashboard;
 using FMSWindows.UserControls.List_Product;
 using FMSWindows.UserControls.Pending_Order;
+using FMSWindows.UserControls.Profile;
 using FMSWindows.UserControls.Sales_Data;
 using Siticone.Desktop.UI.WinForms;
 
@@ -106,6 +107,7 @@ namespace FMSWindows
         {
             Uc_Dashboard.Instance.GetUserDetails();
             this.MinimumSize = this.Size;
+            this.Text = "Dashboard";
         }
 
         private void siticoneButton5_Click(object sender, EventArgs e)
@@ -123,6 +125,12 @@ namespace FMSWindows
         private void uc_Dashboard1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void siticoneButton2_Click(object sender, EventArgs e)
+        {
+            Uc_Profile.Instance.GetDetails();
+            uc_Profile1.BringToFront();
         }
     }
 }

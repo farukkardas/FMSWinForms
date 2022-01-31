@@ -48,6 +48,7 @@
             this.listProductButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.animalsPanelButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.dashboardPanelButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.uc_Dashboard1 = new FMSWindows.UserControls.Dashboard.Uc_Dashboard();
             this.uc_SalesData1 = new FMSWindows.UserControls.Sales_Data.Uc_SalesData();
             this.uc_Customer1 = new FMSWindows.UserControls.Customer.Uc_Customer();
@@ -56,6 +57,11 @@
             this.uc_ListProduct1 = new FMSWindows.UserControls.List_Product.Uc_ListProduct();
             this.uc_Animals1 = new FMSWindows.UserControls.Animals.Uc_Animals();
             this.uc_DeliveryOrders1 = new FMSWindows.UserControls.Pending_Order.Uc_DeliveryOrders();
+            this.uc_Sheeps1 = new FMSWindows.UserControls.Animals.Sub_Animals.Uc_Sheeps();
+            this.uc_Bulls1 = new FMSWindows.UserControls.Animals.Sub_Animals.Uc_Bulls();
+            this.uc_Calves1 = new FMSWindows.UserControls.Animals.Sub_Animals.Uc_Calves();
+            this.uc_Cows1 = new FMSWindows.UserControls.Animals.Sub_Animals.Uc_Cows();
+            this.uc_Profile1 = new FMSWindows.UserControls.Profile.Uc_Profile();
             this.siticonePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -281,6 +287,7 @@
             this.siticoneButton2.TabIndex = 7;
             this.siticoneButton2.Text = "Profile";
             this.siticoneButton2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.siticoneButton2.Click += new System.EventHandler(this.siticoneButton2_Click);
             // 
             // siticoneButton1
             // 
@@ -491,6 +498,16 @@
             this.dashboardPanelButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.dashboardPanelButton.Click += new System.EventHandler(this.dashboardPanelButton_Click);
             // 
+            // siticoneHtmlLabel1
+            // 
+            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(1156, 697);
+            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
+            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(115, 23);
+            this.siticoneHtmlLabel1.TabIndex = 19;
+            this.siticoneHtmlLabel1.Text = "Faruk Kardaş ©";
+            // 
             // uc_Dashboard1
             // 
             this.uc_Dashboard1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -499,7 +516,7 @@
             this.uc_Dashboard1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.uc_Dashboard1.Location = new System.Drawing.Point(206, 47);
             this.uc_Dashboard1.Name = "uc_Dashboard1";
-            this.uc_Dashboard1.Size = new System.Drawing.Size(1050, 630);
+            this.uc_Dashboard1.Size = new System.Drawing.Size(1050, 650);
             this.uc_Dashboard1.TabIndex = 4;
             this.uc_Dashboard1.Load += new System.EventHandler(this.uc_Dashboard1_Load);
             // 
@@ -569,11 +586,54 @@
             // 
             // uc_DeliveryOrders1
             // 
-            this.uc_DeliveryOrders1.Location = new System.Drawing.Point(207, 48);
+            this.uc_DeliveryOrders1.Location = new System.Drawing.Point(206, 47);
             this.uc_DeliveryOrders1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.uc_DeliveryOrders1.Name = "uc_DeliveryOrders1";
             this.uc_DeliveryOrders1.Size = new System.Drawing.Size(1050, 650);
             this.uc_DeliveryOrders1.TabIndex = 13;
+            // 
+            // uc_Sheeps1
+            // 
+            this.uc_Sheeps1.Location = new System.Drawing.Point(207, 47);
+            this.uc_Sheeps1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.uc_Sheeps1.Name = "uc_Sheeps1";
+            this.uc_Sheeps1.Size = new System.Drawing.Size(1050, 650);
+            this.uc_Sheeps1.TabIndex = 17;
+            // 
+            // uc_Bulls1
+            // 
+            this.uc_Bulls1.Location = new System.Drawing.Point(207, 47);
+            this.uc_Bulls1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.uc_Bulls1.Name = "uc_Bulls1";
+            this.uc_Bulls1.Size = new System.Drawing.Size(1050, 650);
+            this.uc_Bulls1.TabIndex = 16;
+            // 
+            // uc_Calves1
+            // 
+            this.uc_Calves1.Location = new System.Drawing.Point(206, 47);
+            this.uc_Calves1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.uc_Calves1.Name = "uc_Calves1";
+            this.uc_Calves1.Size = new System.Drawing.Size(1050, 650);
+            this.uc_Calves1.TabIndex = 15;
+            // 
+            // uc_Cows1
+            // 
+            this.uc_Cows1.Location = new System.Drawing.Point(206, 47);
+            this.uc_Cows1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.uc_Cows1.Name = "uc_Cows1";
+            this.uc_Cows1.Size = new System.Drawing.Size(1050, 650);
+            this.uc_Cows1.TabIndex = 14;
+            // 
+            // uc_Profile1
+            // 
+            this.uc_Profile1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uc_Profile1.Location = new System.Drawing.Point(206, 47);
+            this.uc_Profile1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.uc_Profile1.Name = "uc_Profile1";
+            this.uc_Profile1.Size = new System.Drawing.Size(1050, 650);
+            this.uc_Profile1.TabIndex = 18;
             // 
             // DashboardForm
             // 
@@ -581,6 +641,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.siticoneHtmlLabel1);
             this.Controls.Add(this.uc_Dashboard1);
             this.Controls.Add(this.siticonePanel1);
             this.Controls.Add(this.siticoneGradientCircleButton3);
@@ -592,6 +653,11 @@
             this.Controls.Add(this.uc_ListProduct1);
             this.Controls.Add(this.uc_Animals1);
             this.Controls.Add(this.uc_DeliveryOrders1);
+            this.Controls.Add(this.uc_Sheeps1);
+            this.Controls.Add(this.uc_Bulls1);
+            this.Controls.Add(this.uc_Calves1);
+            this.Controls.Add(this.uc_Cows1);
+            this.Controls.Add(this.uc_Profile1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -602,6 +668,7 @@
             this.siticonePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.siticonePictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -633,5 +700,11 @@
         private UserControls.List_Product.Uc_ListProduct uc_ListProduct1;
         private UserControls.Animals.Uc_Animals uc_Animals1;
         private UserControls.Pending_Order.Uc_DeliveryOrders uc_DeliveryOrders1;
+        private UserControls.Animals.Sub_Animals.Uc_Sheeps uc_Sheeps1;
+        private UserControls.Animals.Sub_Animals.Uc_Bulls uc_Bulls1;
+        private UserControls.Animals.Sub_Animals.Uc_Calves uc_Calves1;
+        private UserControls.Animals.Sub_Animals.Uc_Cows uc_Cows1;
+        private UserControls.Profile.Uc_Profile uc_Profile1;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
     }
 }

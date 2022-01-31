@@ -19,9 +19,9 @@ namespace FMSWindows.UserControls.List_Product
     public partial class Uc_AddProduct : UserControl
     {
         
-        string file;
-        byte[] buffer;
-        ProductsOnSale productsOnSale;
+        string _file;
+        byte[] _buffer;
+        ProductsOnSale _productsOnSale;
 
         public Uc_AddProduct()
         {
@@ -32,7 +32,7 @@ namespace FMSWindows.UserControls.List_Product
         private bool ValidateFields()
         {
             SiticoneMessageDialog messageDialog = new SiticoneMessageDialog();
-            if (String.IsNullOrWhiteSpace(nameTxtBox.Text) || String.IsNullOrWhiteSpace(priceTxtBox.Text) || String.IsNullOrWhiteSpace(descriptionTxtBox.Text) || String.IsNullOrWhiteSpace(file))
+            if (String.IsNullOrWhiteSpace(nameTxtBox.Text) || String.IsNullOrWhiteSpace(priceTxtBox.Text) || String.IsNullOrWhiteSpace(descriptionTxtBox.Text) || String.IsNullOrWhiteSpace(_file))
             {
                 messageDialog.Text = "Please fill all fields!";
                 messageDialog.Style = MessageDialogStyle.Default;
@@ -83,7 +83,7 @@ namespace FMSWindows.UserControls.List_Product
             {
                 if (ValidateFields())
                 {
-                    var response = await _product.AddListProduct(productsOnSale, buffer, file);
+                    var response = await _product.AddListProduct(_productsOnSale, _buffer, _file);
                     messageDialog.Text = response.Message;
                     messageDialog.Style = MessageDialogStyle.Light;
                     messageDialog.Show();
@@ -105,26 +105,26 @@ namespace FMSWindows.UserControls.List_Product
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
 
-                file = openFileDialog.FileName;
-                buffer = File.ReadAllBytes(openFileDialog.FileName);
+                _file = openFileDialog.FileName;
+                _buffer = File.ReadAllBytes(openFileDialog.FileName);
             }
         }
 
         private void descriptionTxtBox_TextChanged_1(object sender, EventArgs e)
         {
-            productsOnSale.Description = descriptionTxtBox.Text;
+            _productsOnSale.Description = descriptionTxtBox.Text;
 
         }
 
         private void categoryCmbBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            productsOnSale.CategoryId = categoryCmbBox.SelectedIndex;
+            _productsOnSale.CategoryId = categoryCmbBox.SelectedIndex;
 
         }
 
         private void nameTxtBox_TextChanged_1(object sender, EventArgs e)
         {
-            productsOnSale.Name = nameTxtBox.Text;
+            _productsOnSale.Name = nameTxtBox.Text;
 
         }
 
@@ -134,7 +134,7 @@ namespace FMSWindows.UserControls.List_Product
             var res = regex.IsMatch(priceTxtBox.Text);
             if (res)
             {
-                productsOnSale.Price = priceTxtBox.Text;
+                _productsOnSale.Price = priceTxtBox.Text;
             }
             else
             {
@@ -147,7 +147,7 @@ namespace FMSWindows.UserControls.List_Product
 
         private void Uc_AddProduct_Load(object sender, EventArgs e)
         {
-            productsOnSale = new ProductsOnSale();
+            _productsOnSale = new ProductsOnSale();
 
         }
     }

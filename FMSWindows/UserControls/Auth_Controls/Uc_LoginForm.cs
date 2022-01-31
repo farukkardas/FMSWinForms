@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FMSWindows.Models;
 using FMSWindows.Services;
+using FMSWindows.Services.Abstract;
 using Newtonsoft.Json;
 using Siticone.Desktop.UI.WinForms;
 using Siticone.Desktop.UI.WinForms.Suite;
@@ -20,12 +21,15 @@ namespace FMSWindows.UserControls
     public partial class Uc_LoginForm : UserControl
     {
         public Uc_LoginForm Instance;
+        private IAuth _authService;
+
         public Uc_LoginForm()
         {
-            if(Instance == null)
+            if (Instance == null)
             {
                 Instance = this;
             }
+
             InitializeComponent();
             emailEmptyLabel.Hide();
             passwordEmptyLabel.Hide();
@@ -37,26 +41,24 @@ namespace FMSWindows.UserControls
         private async void siticoneButton1_Click(object sender, EventArgs e)
         {
             siticoneButton1.Enabled = false;
-            AuthService authService = new AuthService();
-
+            _authService = (IAuth) Program.ServiceProvider.GetService(typeof(IAuth));
             if (ValidateFields())
             {
                 SiticoneMessageDialog siticoneMessageDialog = new SiticoneMessageDialog();
                 try
                 {
-                    var response = await authService.Login(siticoneTextBox1.Text, siticoneTextBox2.Text);
-                   
-                  
+                    var response = await _authService.Login(siticoneTextBox1.Text, siticoneTextBox2.Text);
+
+
                     if (response.Success)
                     {
                         foreach (var operationClaim in response.Data.OperationClaims)
                         {
-                            
                             if (operationClaim.Name.Contains("admin") || operationClaim.Name.Contains("user"))
                             {
                                 siticoneMessageDialog.Style = MessageDialogStyle.Light;
                                 SaveCredentials();
-                                siticoneMessageDialog.Show(response.Message,@"Success");
+                                siticoneMessageDialog.Show(response.Message, @"Success");
                                 Program.Jwt = response.Data.Token;
                                 Program.Id = response.Data.Id;
                                 Program.SecurityKey = response.Data.SecurityKey;
@@ -67,11 +69,11 @@ namespace FMSWindows.UserControls
                             }
                             else
                             {
-                                siticoneMessageDialog.Show(@"You don't have permissions to login admin panel!", $"Error");
+                                siticoneMessageDialog.Show(@"You don't have permissions to login admin panel!",
+                                    $"Error");
                                 siticoneButton1.Enabled = true;
                                 return;
                             }
-
                         }
                     }
                     else if (!response.Success)
@@ -81,7 +83,6 @@ namespace FMSWindows.UserControls
 
                         siticoneMessageDialog.Show(response.Message, @"Error");
                         siticoneButton1.Enabled = true;
-              
                     }
 
                     else
@@ -100,12 +101,7 @@ namespace FMSWindows.UserControls
                     siticoneButton1.Enabled = true;
                     return;
                 }
-
-
-
             }
-
-
         }
 
         private void SaveCredentials()
@@ -113,9 +109,10 @@ namespace FMSWindows.UserControls
             if (rememberMeChck.Checked)
             {
                 var path = Directory.GetCurrentDirectory() + "/credentials.txt";
-                LoginModel loginModel = new LoginModel();
-                loginModel.Email = siticoneTextBox1.Text;
-                loginModel.Password = siticoneTextBox2.Text;
+                LoginModel loginModel = new LoginModel
+                {
+                    Email = siticoneTextBox1.Text, Password = siticoneTextBox2.Text
+                };
                 var json = JsonConvert.SerializeObject(loginModel);
 
                 if (!File.Exists(path))
@@ -123,7 +120,6 @@ namespace FMSWindows.UserControls
                     using (StreamWriter sw = File.CreateText(path))
                     {
                         sw.WriteLine(json);
-
                     }
                 }
                 else
@@ -131,10 +127,8 @@ namespace FMSWindows.UserControls
                     using (StreamWriter sw = File.CreateText(path))
                     {
                         sw.WriteLine(json);
-
                     }
                 }
-
             }
         }
 
@@ -154,7 +148,6 @@ namespace FMSWindows.UserControls
                     }
                 }
             }
-
         }
 
         private bool ValidateFields()
@@ -176,7 +169,6 @@ namespace FMSWindows.UserControls
                 emailEmptyLabel.Hide();
                 siticoneButton1.Enabled = true;
                 return false;
-
             }
             else if (String.IsNullOrWhiteSpace(siticoneTextBox2.Text))
             {
@@ -185,7 +177,6 @@ namespace FMSWindows.UserControls
                 passwordEmptyLabel.Hide();
                 siticoneButton1.Enabled = true;
                 return false;
-
             }
 
 
@@ -217,7 +208,6 @@ namespace FMSWindows.UserControls
 
         private void Uc_LoginForm_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

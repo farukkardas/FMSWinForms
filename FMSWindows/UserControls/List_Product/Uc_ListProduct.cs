@@ -2,6 +2,7 @@
 using FMSWindows.Models.Constants;
 using FMSWindows.Models.Entities;
 using FMSWindows.Services;
+using FMSWindows.Services.Abstract;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace FMSWindows.UserControls.List_Product
     public partial class Uc_ListProduct : UserControl
     {
         public static Uc_ListProduct Instance;
+        private IProduct _productSaleService;
         public Uc_ListProduct()
         {
             InitializeComponent();
@@ -57,9 +59,9 @@ namespace FMSWindows.UserControls.List_Product
         {
             try
             {
+                _productSaleService = (IProduct)Program.ServiceProvider.GetService(typeof(IProduct));
                 listProductDgw.Columns.Clear();
-                ProductSaleService productSaleService = new ProductSaleService();
-                var response = await productSaleService.GetUserProducts();
+                var response = await _productSaleService.GetUserProducts();
 
 
                 if (response.Data.Length <= 0)

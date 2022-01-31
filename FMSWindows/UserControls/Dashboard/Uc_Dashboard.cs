@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FMSWindows.Models.Constants;
 using FMSWindows.Services;
+using FMSWindows.Services.Abstract;
 using FMSWindows.UserControls.Pending_Order;
 using Siticone.Desktop.UI.WinForms;
 
@@ -17,6 +18,7 @@ namespace FMSWindows.UserControls.Dashboard
     public partial class Uc_Dashboard : UserControl
     {
         public static Uc_Dashboard Instance;
+        private IUser _userService;
         public Uc_Dashboard()
         {
             InitializeComponent();
@@ -30,18 +32,17 @@ namespace FMSWindows.UserControls.Dashboard
         {
             try
             {
-                UserService userService = new UserService();
-                var response = await userService.GetUserDetails();
+                _userService = (IUser) Program.ServiceProvider.GetService(typeof(IUser));
+                var response = await _userService.GetUserDetails();
 
                 saleAmountLabel.Text = response.Data.SuccessfulSales.ToString() + @" Piece";
                 canceledLabel.Text = response.Data.CanceledOrders.ToString() + @" Piece";
                 pendingLabel.Text = response.Data.PendingOrders.ToString() + @" Piece";
                 deliveryLabel.Text = response.Data.DeliveryOrders.ToString() + @" Piece";
                 approvedLabel.Text = response.Data.ApprovedOrders.ToString() + @" Piece";
-                profitText.Text = response.Data.Profit.ToString() + " TL";
-                nameTxt.Text = $"{response.Data.FirstName} {response.Data.LastName}";
-                cityName.Text = $"{Cities.cities[(int)response.Data.City]}";
-
+                profitText.Text = response.Data.Profit + " TL";
+                nameTxt.Text = $@"{response.Data.FirstName} {response.Data.LastName}";
+                if (response.Data.City != null) cityName.Text = $@"{Cities.cities[(int) response.Data.City]}";
             }
             catch (Exception e)
             {

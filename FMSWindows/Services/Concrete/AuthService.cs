@@ -11,11 +11,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FMSWindows.Models;
 using FMSWindows.Models.Auth;
+using FMSWindows.Services.Abstract;
 using Newtonsoft.Json;
 
 namespace FMSWindows.Services
 {
-    public class AuthService
+    public class AuthService : IAuth
     {
         public async Task<SingleResponseModel<TokenModel>> Login(string email, string password)
         {

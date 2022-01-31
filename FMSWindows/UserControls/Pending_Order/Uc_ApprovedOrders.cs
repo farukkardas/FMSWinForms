@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using FMSWindows.Models;
 using FMSWindows.Models.Constants;
 using FMSWindows.Services;
+using FMSWindows.Services.Abstract;
 using Siticone.Desktop.UI.WinForms;
 
 namespace FMSWindows.UserControls.Pending_Order
@@ -19,6 +20,7 @@ namespace FMSWindows.UserControls.Pending_Order
     {
         public static Uc_ApprovedOrders Instance;
         private string _orderValue;
+        IOrder _orderService;
 
         public Uc_ApprovedOrders()
         {
@@ -32,17 +34,15 @@ namespace FMSWindows.UserControls.Pending_Order
         private void Uc_ApprovedOrders_Load(object sender, EventArgs e)
         {
             SetDgwProperties();
-          
-
         }
 
         private async void AddDeliveryNo()
         {
             try
             {
-                OrderService orderService = new OrderService();
+                _orderService = (IOrder) Program.ServiceProvider.GetService(typeof(IOrder));
 
-                var response = await orderService.AddDeliveryNo(_orderValue, deliveryTxtBox.Text);
+                var response = await _orderService.AddDeliveryNo(_orderValue, deliveryTxtBox.Text);
 
                 SiticoneMessageDialog siticoneMessageDialog = new SiticoneMessageDialog();
                 if (response.Success)
@@ -58,11 +58,9 @@ namespace FMSWindows.UserControls.Pending_Order
                     siticoneMessageDialog.Text = response.Message;
                     siticoneMessageDialog.Show();
                 }
-
             }
             catch (WebException e)
             {
-
                 throw;
             }
         }
@@ -78,7 +76,6 @@ namespace FMSWindows.UserControls.Pending_Order
             {
                 column.SortMode = DataGridViewColumnSortMode.Automatic;
             }
-
         }
 
         public async void GetApprovedOrders()
@@ -86,15 +83,15 @@ namespace FMSWindows.UserControls.Pending_Order
             try
             {
                 approvedOrderDgw.Columns.Clear();
-                OrderService orderService = new OrderService();
-                var response = await orderService.GetUserOrders();
-                List<OrderDetail> orderDetail = new List<OrderDetail>();
-                orderDetail = response.Data.Where(d => d.Status == 3).ToList();
+                _orderService = (IOrder) Program.ServiceProvider.GetService(typeof(IOrder));
+                var response = await _orderService.GetUserOrders();
+                var orderDetail = response.Data.Where(d => d.Status == 3).ToList();
                 if (orderDetail.Count <= 0)
                 {
                     emptyPicture.Visible = true;
                     return;
                 }
+
                 emptyPicture.Visible = false;
                 //Burada manuel yaptım verileri manipüle etmek istiyordum
                 approvedOrderDgw.Columns.Clear();
@@ -111,7 +108,7 @@ namespace FMSWindows.UserControls.Pending_Order
 
 
                 approvedOrderDgw.Rows.Add(orderDetail.Count);
-         
+
                 for (int i = 0; i < orderDetail.Count; i++)
                 {
                     for (int j = 0; j < approvedOrderDgw.Rows.Count; j++)
@@ -128,28 +125,19 @@ namespace FMSWindows.UserControls.Pending_Order
                         approvedOrderDgw.Rows[j].Cells[9].Value = Status.status[orderDetail[j].Status].ToUpper();
                     }
                 }
-
-
             }
             catch (Exception e)
             {
-               MessageBox.Show(e.ToString());
+                MessageBox.Show(e.ToString());
             }
         }
 
-        private void approvedOrderDgw_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (approvedOrderDgw.CurrentRow != null && approvedOrderDgw.CurrentRow.Selected)
-            {
-                if (approvedOrderDgw.Rows[e.RowIndex].Cells[0].Value != null)
-                    _orderValue = approvedOrderDgw.Rows[e.RowIndex].Cells[0].Value.ToString();
-            }
-        }
 
         private void deliveryTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar)
-               && !char.IsSeparator(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+                                                  && !char.IsSeparator(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                                                  !char.IsControl(e.KeyChar);
         }
 
         private void siticoneButton2_Click(object sender, EventArgs e)
@@ -165,6 +153,16 @@ namespace FMSWindows.UserControls.Pending_Order
             }
 
             AddDeliveryNo();
+        }
+
+        private void approvedOrderDgw_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // yeni yöntem eskisinde headere basınca exception fırlatıyordu
+            if (approvedOrderDgw.CurrentRow != null && approvedOrderDgw.CurrentRow.Selected)
+            {
+                DataGridViewRow selectedRow = approvedOrderDgw.Rows[approvedOrderDgw.SelectedCells[0].RowIndex];
+                _orderValue = selectedRow.Cells[0].Value.ToString();
+            }
         }
     }
 }

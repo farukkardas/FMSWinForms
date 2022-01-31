@@ -19,9 +19,9 @@ namespace FMSWindows.UserControls.Pending_Order
     public partial class Uc_PendingOrders : UserControl
     {
         public static Uc_PendingOrders Instance;
-        List<OrderDetail> orderDetail;
+        List<OrderDetail> _orderDetail;
         private string _orderValue;
-        IOrder orderDal;
+        IOrder _orderDal;
         public Uc_PendingOrders()
         {
             InitializeComponent();
@@ -57,16 +57,16 @@ namespace FMSWindows.UserControls.Pending_Order
             try
             {
 
-                orderDal = (IOrder)Program.ServiceProvider.GetService(typeof(IOrder));
+                _orderDal = (IOrder)Program.ServiceProvider.GetService(typeof(IOrder));
 
-                var response = await orderDal.GetUserOrders();
+                var response = await _orderDal.GetUserOrders();
                
-                orderDetail = new List<OrderDetail>();
+                _orderDetail = new List<OrderDetail>();
 
-                orderDetail = response.Data.Where(d => d.Status == 2).ToList();
+                _orderDetail = response.Data.Where(d => d.Status == 2).ToList();
 
 
-                if (orderDetail.Count <= 0)
+                if (_orderDetail.Count <= 0)
                 {
                     orderDgw.Columns.Clear();
                     emptyPicture.Visible = true;
@@ -87,20 +87,20 @@ namespace FMSWindows.UserControls.Pending_Order
                 orderDgw.Columns.Add("Bought Date", "Bought Date");
                 orderDgw.Columns.Add("Status", "Status");
 
-                orderDgw.Rows.Add(orderDetail.Count);
-                for (int i = 0; i < orderDetail.Count; i++)
+                orderDgw.Rows.Add(_orderDetail.Count);
+                for (int i = 0; i < _orderDetail.Count; i++)
                 {
                     for (int j = 0; j < orderDgw.Rows.Count; j++)
                     {
-                        orderDgw.Rows[j].Cells[0].Value = orderDetail[j].Id;
-                        orderDgw.Rows[j].Cells[1].Value = orderDetail[j].ProductId;
-                        orderDgw.Rows[j].Cells[2].Value = orderDetail[j].ProductName.ToUpper();
-                        orderDgw.Rows[j].Cells[3].Value = orderDetail[j].Price;
-                        orderDgw.Rows[j].Cells[4].Value = orderDetail[j].CustomerName.ToUpper();
-                        orderDgw.Rows[j].Cells[5].Value = Cities.cities[orderDetail[j].DeliveryCity].ToUpper();
-                        orderDgw.Rows[j].Cells[6].Value = orderDetail[j].DeliveryDistrict.ToUpper();
-                        orderDgw.Rows[j].Cells[7].Value = orderDetail[j].DeliveryAddress.ToUpper();
-                        orderDgw.Rows[j].Cells[8].Value = orderDetail[j].BoughtDate;
+                        orderDgw.Rows[j].Cells[0].Value = _orderDetail[j].Id;
+                        orderDgw.Rows[j].Cells[1].Value = _orderDetail[j].ProductId;
+                        orderDgw.Rows[j].Cells[2].Value = _orderDetail[j].ProductName.ToUpper();
+                        orderDgw.Rows[j].Cells[3].Value = _orderDetail[j].Price;
+                        orderDgw.Rows[j].Cells[4].Value = _orderDetail[j].CustomerName.ToUpper();
+                        orderDgw.Rows[j].Cells[5].Value = Cities.cities[_orderDetail[j].DeliveryCity].ToUpper();
+                        orderDgw.Rows[j].Cells[6].Value = _orderDetail[j].DeliveryDistrict.ToUpper();
+                        orderDgw.Rows[j].Cells[7].Value = _orderDetail[j].DeliveryAddress.ToUpper();
+                        orderDgw.Rows[j].Cells[8].Value = _orderDetail[j].BoughtDate;
                         orderDgw.Rows[j].Cells[9].Value = "PENDING";
                     }
                 }
@@ -133,7 +133,7 @@ namespace FMSWindows.UserControls.Pending_Order
                     messageDialog.Show();
                     return;
                 }
-                var response = await orderDal.ApproveOrder(_orderValue);
+                var response = await _orderDal.ApproveOrder(_orderValue);
                 GetPendingOrders();
                 SiticoneMessageDialog siticoneMessageDialog = new SiticoneMessageDialog();
                 siticoneMessageDialog.Text = response.Message;
@@ -158,7 +158,7 @@ namespace FMSWindows.UserControls.Pending_Order
                     return;
                 }
 
-                var response = await orderDal.CancelOrder(_orderValue);
+                var response = await _orderDal.CancelOrder(_orderValue);
                 SiticoneMessageDialog siticoneMessageDialog = new SiticoneMessageDialog();
                 siticoneMessageDialog.Text = response.Message;
                 siticoneMessageDialog.Show();

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using ExampleCode;
 using FMSWindows.Models;
 using FMSWindows.Services;
+using FMSWindows.Services.Abstract;
 using Siticone.Desktop.UI.WinForms;
 
 namespace FMSWindows.UserControls.Customer
@@ -12,6 +13,7 @@ namespace FMSWindows.UserControls.Customer
     public partial class Uc_Customer : UserControl
     {
         public static Uc_Customer Instance;
+        private ICustomer _customerService;
         public Uc_Customer()
         {
             InitializeComponent();
@@ -34,9 +36,8 @@ namespace FMSWindows.UserControls.Customer
 
             try
             {
-              
-                CustomerService customerService = new CustomerService();
-                var response = await customerService.GetCustomerDetails();
+                _customerService = (ICustomer) Program.ServiceProvider.GetService(typeof(ICustomer));
+                var response = await _customerService.GetCustomerDetails();
                 List<CustomerDetail> customerDetails = new List<CustomerDetail>();
                 foreach (CustomerDetail customerDetail in response.Data)
                 {

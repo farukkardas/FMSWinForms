@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Uc_SalesData));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.emptyPicture = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -96,33 +96,33 @@
             // siticoneHtmlLabel2
             // 
             this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.siticoneHtmlLabel2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.siticoneHtmlLabel2.IsSelectionEnabled = false;
-            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(3, 10);
+            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(17, 8);
             this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
-            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(81, 20);
+            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(80, 23);
             this.siticoneHtmlLabel2.TabIndex = 4;
             this.siticoneHtmlLabel2.Text = "Total Sales:";
             // 
             // siticoneHtmlLabel3
             // 
             this.siticoneHtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.siticoneHtmlLabel3.Font = new System.Drawing.Font("Microsoft YaHei UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.siticoneHtmlLabel3.IsSelectionEnabled = false;
-            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(13, 10);
+            this.siticoneHtmlLabel3.Location = new System.Drawing.Point(17, 8);
             this.siticoneHtmlLabel3.Name = "siticoneHtmlLabel3";
-            this.siticoneHtmlLabel3.Size = new System.Drawing.Size(42, 20);
+            this.siticoneHtmlLabel3.Size = new System.Drawing.Size(48, 25);
             this.siticoneHtmlLabel3.TabIndex = 5;
             this.siticoneHtmlLabel3.Text = "Profit:";
             // 
             // totalSaleText
             // 
             this.totalSaleText.BackColor = System.Drawing.Color.Transparent;
-            this.totalSaleText.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.totalSaleText.Font = new System.Drawing.Font("Microsoft YaHei UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.totalSaleText.IsSelectionEnabled = false;
-            this.totalSaleText.Location = new System.Drawing.Point(85, 10);
+            this.totalSaleText.Location = new System.Drawing.Point(103, 8);
             this.totalSaleText.Name = "totalSaleText";
-            this.totalSaleText.Size = new System.Drawing.Size(39, 20);
+            this.totalSaleText.Size = new System.Drawing.Size(51, 25);
             this.totalSaleText.TabIndex = 6;
             this.totalSaleText.Text = "Empty";
             this.totalSaleText.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -130,41 +130,41 @@
             // profitText
             // 
             this.profitText.BackColor = System.Drawing.Color.Transparent;
-            this.profitText.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.profitText.Font = new System.Drawing.Font("Microsoft YaHei UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.profitText.IsSelectionEnabled = false;
-            this.profitText.Location = new System.Drawing.Point(55, 10);
+            this.profitText.Location = new System.Drawing.Point(67, 8);
             this.profitText.Name = "profitText";
-            this.profitText.Size = new System.Drawing.Size(10, 20);
+            this.profitText.Size = new System.Drawing.Size(12, 25);
             this.profitText.TabIndex = 7;
             this.profitText.Text = "0";
             this.profitText.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // saleDataDgw
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.saleDataDgw.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.saleDataDgw.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.saleDataDgw.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.saleDataDgw.BackgroundColor = System.Drawing.Color.White;
             this.saleDataDgw.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.saleDataDgw.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.saleDataDgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.saleDataDgw.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.saleDataDgw.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.saleDataDgw.ColumnHeadersHeight = 4;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.saleDataDgw.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.saleDataDgw.DefaultCellStyle = dataGridViewCellStyle15;
             this.saleDataDgw.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.saleDataDgw.EnableHeadersVisualStyles = false;
             this.saleDataDgw.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -198,22 +198,28 @@
             // 
             // siticoneCustomGradientPanel1
             // 
+            this.siticoneCustomGradientPanel1.BorderColor = System.Drawing.Color.Gray;
             this.siticoneCustomGradientPanel1.BorderRadius = 10;
+            this.siticoneCustomGradientPanel1.BorderThickness = 2;
             this.siticoneCustomGradientPanel1.Controls.Add(this.siticoneHtmlLabel3);
             this.siticoneCustomGradientPanel1.Controls.Add(this.profitText);
             this.siticoneCustomGradientPanel1.FillColor = System.Drawing.Color.Lime;
+            this.siticoneCustomGradientPanel1.FillColor2 = System.Drawing.Color.Lime;
             this.siticoneCustomGradientPanel1.Location = new System.Drawing.Point(202, 45);
             this.siticoneCustomGradientPanel1.Name = "siticoneCustomGradientPanel1";
             this.siticoneCustomGradientPanel1.ShadowDecoration.Parent = this.siticoneCustomGradientPanel1;
-            this.siticoneCustomGradientPanel1.Size = new System.Drawing.Size(214, 39);
+            this.siticoneCustomGradientPanel1.Size = new System.Drawing.Size(183, 39);
             this.siticoneCustomGradientPanel1.TabIndex = 9;
             // 
             // siticoneCustomGradientPanel2
             // 
+            this.siticoneCustomGradientPanel2.BorderColor = System.Drawing.Color.Gray;
             this.siticoneCustomGradientPanel2.BorderRadius = 10;
+            this.siticoneCustomGradientPanel2.BorderThickness = 2;
             this.siticoneCustomGradientPanel2.Controls.Add(this.siticoneHtmlLabel2);
             this.siticoneCustomGradientPanel2.Controls.Add(this.totalSaleText);
             this.siticoneCustomGradientPanel2.FillColor = System.Drawing.Color.Red;
+            this.siticoneCustomGradientPanel2.FillColor2 = System.Drawing.Color.Red;
             this.siticoneCustomGradientPanel2.Location = new System.Drawing.Point(4, 45);
             this.siticoneCustomGradientPanel2.Name = "siticoneCustomGradientPanel2";
             this.siticoneCustomGradientPanel2.ShadowDecoration.Parent = this.siticoneCustomGradientPanel2;

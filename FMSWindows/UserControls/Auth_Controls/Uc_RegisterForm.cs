@@ -10,12 +10,14 @@ using System.Windows.Forms;
 using FMSWindows.Models;
 using FMSWindows.Models.ResponseModels;
 using FMSWindows.Services;
+using FMSWindows.Services.Abstract;
 using Newtonsoft.Json;
 
 namespace FMSWindows
 {
     public partial class Uc_RegisterForm : UserControl
     {
+        private IAuth _authService;
         public Uc_RegisterForm()
         {
             InitializeComponent();
@@ -26,8 +28,8 @@ namespace FMSWindows
             siticoneButton1.Enabled = false;
             try
             {
-                AuthService authService = new AuthService();
-                var response = await authService.Register(firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, passwordTextBox.Text);
+             _authService = (IAuth)Program.ServiceProvider.GetService(typeof(IAuth));
+                var response = await _authService.Register(firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, passwordTextBox.Text);
                 
                 if (response.Contains("true"))
                 {

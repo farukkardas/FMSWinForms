@@ -45,16 +45,14 @@ namespace FMSWindows.UserControls.Sales_Data
 
         public async void GetSalesData()
         {
-            IOrder _orderService;
-            _orderService = (IOrder)Program.ServiceProvider.GetService(typeof(IOrder));
+            var orderService = (IOrder)Program.ServiceProvider.GetService(typeof(IOrder));
 
             try
             {
                 saleDataDgw.Columns.Clear();
 
-                var response = await _orderService.GetUserOrders();
-                List<OrderDetail> salesData = new List<OrderDetail>();
-                salesData = response.Data.Where(d => d.Status == 6).ToList();
+                var response = await orderService.GetUserOrders();
+                var salesData = response.Data.Where(d => d.Status == 6).ToList();
 
 
                 if (salesData.Count <= 0)

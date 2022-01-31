@@ -7,11 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FMSWindows.Models;
+using FMSWindows.Services.Abstract;
 using Newtonsoft.Json;
 
 namespace FMSWindows.Services
 {
-    public class CustomerService
+    public class CustomerService : ICustomer
     {
         public async Task<ListResponseModel<CustomerDetail>> GetCustomerDetails()
         {

@@ -55,7 +55,7 @@ namespace FMSWindows
 
         private void uc_LoginForm1_Load(object sender, EventArgs e)
         {
-
+            this.Text = "FMS Panel";
         }
     }
 }

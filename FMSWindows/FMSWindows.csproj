@@ -175,14 +175,41 @@
     <Compile Include="Models\ResponseModels\Concrete\SuccessResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Abstract\IAuth.cs" />
+    <Compile Include="Services\Abstract\ICustomer.cs" />
     <Compile Include="Services\Abstract\IOrder.cs" />
     <Compile Include="Services\Abstract\IProduct.cs" />
     <Compile Include="Models\ResponseModels\Abstract\IResult.cs" />
-    <Compile Include="Services\AuthService.cs" />
-    <Compile Include="Services\CustomerService.cs" />
-    <Compile Include="Services\OrderService.cs" />
-    <Compile Include="Services\ProductSaleService.cs" />
-    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\Abstract\IUser.cs" />
+    <Compile Include="Services\Concrete\AuthService.cs" />
+    <Compile Include="Services\Concrete\CustomerService.cs" />
+    <Compile Include="Services\Concrete\OrderService.cs" />
+    <Compile Include="Services\Concrete\ProductSaleService.cs" />
+    <Compile Include="Services\Concrete\UserService.cs" />
+    <Compile Include="UserControls\Animals\Sub_Animals\Uc_Bulls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Animals\Sub_Animals\Uc_Bulls.Designer.cs">
+      <DependentUpon>Uc_Bulls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Animals\Sub_Animals\Uc_Calves.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Animals\Sub_Animals\Uc_Calves.Designer.cs">
+      <DependentUpon>Uc_Calves.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Animals\Sub_Animals\Uc_Cows.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Animals\Sub_Animals\Uc_Cows.Designer.cs">
+      <DependentUpon>Uc_Cows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Animals\Sub_Animals\Uc_Sheeps.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Animals\Sub_Animals\Uc_Sheeps.Designer.cs">
+      <DependentUpon>Uc_Sheeps.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Animals\Uc_Animals.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -243,6 +270,12 @@
     <Compile Include="UserControls\Pending_Order\Uc_PendingOrders.Designer.cs">
       <DependentUpon>Uc_PendingOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Profile\Uc_Profile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Profile\Uc_Profile.Designer.cs">
+      <DependentUpon>Uc_Profile.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Sales_Data\Uc_SalesData.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -264,6 +297,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\Animals\Sub_Animals\Uc_Bulls.resx">
+      <DependentUpon>Uc_Bulls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Animals\Sub_Animals\Uc_Calves.resx">
+      <DependentUpon>Uc_Calves.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Animals\Sub_Animals\Uc_Cows.resx">
+      <DependentUpon>Uc_Cows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Animals\Sub_Animals\Uc_Sheeps.resx">
+      <DependentUpon>Uc_Sheeps.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Animals\Uc_Animals.resx">
       <DependentUpon>Uc_Animals.cs</DependentUpon>
     </EmbeddedResource>
@@ -294,6 +339,9 @@
     <EmbeddedResource Include="UserControls\Pending_Order\Uc_PendingOrders.resx">
       <DependentUpon>Uc_PendingOrders.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Profile\Uc_Profile.resx">
+      <DependentUpon>Uc_Profile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Sales_Data\Uc_SalesData.resx">
       <DependentUpon>Uc_SalesData.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,7 +362,6 @@
   <ItemGroup>
     <Folder Include="Assets\Menu_Icons\" />
     <Folder Include="Assets\Pictures\" />
-    <Folder Include="UserControls\Animals\Sub_Animals\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

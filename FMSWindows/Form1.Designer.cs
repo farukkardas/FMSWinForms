@@ -41,6 +41,7 @@
             this.siticoneCircleButton1 = new Siticone.Desktop.UI.WinForms.SiticoneCircleButton();
             this.uc_LoginForm1 = new FMSWindows.UserControls.Uc_LoginForm();
             this.uc_RegisterForm1 = new FMSWindows.Uc_RegisterForm();
+            this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -172,11 +173,21 @@
             this.uc_RegisterForm1.Size = new System.Drawing.Size(450, 350);
             this.uc_RegisterForm1.TabIndex = 9;
             // 
+            // siticoneHtmlLabel2
+            // 
+            this.siticoneHtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.siticoneHtmlLabel2.Location = new System.Drawing.Point(2, 382);
+            this.siticoneHtmlLabel2.Name = "siticoneHtmlLabel2";
+            this.siticoneHtmlLabel2.Size = new System.Drawing.Size(78, 15);
+            this.siticoneHtmlLabel2.TabIndex = 11;
+            this.siticoneHtmlLabel2.Text = "Faruk Kardaş ©";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 400);
+            this.Controls.Add(this.siticoneHtmlLabel2);
             this.Controls.Add(this.uc_LoginForm1);
             this.Controls.Add(this.uc_RegisterForm1);
             this.Controls.Add(this.siticoneCircleButton1);
@@ -208,6 +219,7 @@
         private Siticone.Desktop.UI.WinForms.SiticoneCircleButton siticoneCircleButton1;
         private UserControls.Uc_LoginForm uc_LoginForm1;
         private Uc_RegisterForm uc_RegisterForm1;
+        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel2;
     }
 }
 

@@ -25,6 +25,9 @@ namespace FMSWindows
             var services = new ServiceCollection();
             services.AddTransient<IProduct, ProductSaleService>();
             services.AddTransient<IOrder, OrderService>();
+            services.AddTransient<IUser, UserService>();
+            services.AddTransient<ICustomer, CustomerService>();
+            services.AddTransient<IAuth,AuthService>();
             ServiceProvider = services.BuildServiceProvider();
         }
 

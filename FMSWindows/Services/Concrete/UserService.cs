@@ -1,13 +1,12 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using FMSWindows.Models;
 using Newtonsoft.Json;
-
+using FMSWindows.Services.Abstract;
 namespace FMSWindows.Services
 {
-    public class UserService
+    public class UserService : IUser
     {
         public async Task<SingleResponseModel<UserDetail>> GetUserDetails()
         {

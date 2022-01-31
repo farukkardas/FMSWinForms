@@ -12,8 +12,8 @@ namespace FMSWindows.UserControls.Pending_Order
     public partial class Uc_DeliveryOrders : UserControl
     {
         public static Uc_DeliveryOrders Instance;
-        List<OrderDetail> orderDetail;
-        IOrder orderDal;
+        List<OrderDetail> _orderDetail;
+        IOrder _orderDal;
         public Uc_DeliveryOrders()
         {
             InitializeComponent();
@@ -47,12 +47,12 @@ namespace FMSWindows.UserControls.Pending_Order
         {
             try
             {
-                orderDal = (IOrder)Program.ServiceProvider.GetService(typeof(IOrder));
-                var response = await orderDal.GetUserOrders();
+                _orderDal = (IOrder)Program.ServiceProvider.GetService(typeof(IOrder));
+                var response = await _orderDal.GetUserOrders();
 
 
-                orderDetail =  response.Data.Where(o => o.Status == 5).ToList();
-                if (orderDetail.Count <= 0)
+                _orderDetail =  response.Data.Where(o => o.Status == 5).ToList();
+                if (_orderDetail.Count <= 0)
                 {
                     emptyPicture.Visible = true;
                     return;
@@ -73,22 +73,22 @@ namespace FMSWindows.UserControls.Pending_Order
                 deliveryDgw.Columns.Add("Delivery No", "Delivery No");
                 deliveryDgw.Columns.Add("Status", "Status");
 
-                deliveryDgw.Rows.Add(orderDetail.Count);
-                for (int i = 0; i < orderDetail.Count; i++)
+                deliveryDgw.Rows.Add(_orderDetail.Count);
+                for (int i = 0; i < _orderDetail.Count; i++)
                 {
                     for (int j = 0; j < deliveryDgw.Rows.Count; j++)
                     {
-                        deliveryDgw.Rows[j].Cells[0].Value = orderDetail[j].Id;
-                        deliveryDgw.Rows[j].Cells[1].Value = orderDetail[j].ProductId;
-                        deliveryDgw.Rows[j].Cells[2].Value = orderDetail[j].ProductName.ToUpper();
-                        deliveryDgw.Rows[j].Cells[3].Value = orderDetail[j].Price;
-                        deliveryDgw.Rows[j].Cells[4].Value = orderDetail[j].CustomerName.ToUpper();
-                        deliveryDgw.Rows[j].Cells[5].Value = Cities.cities[orderDetail[j].DeliveryCity].ToUpper();
-                        deliveryDgw.Rows[j].Cells[6].Value = orderDetail[j].DeliveryDistrict.ToUpper();
-                        deliveryDgw.Rows[j].Cells[7].Value = orderDetail[j].DeliveryAddress.ToUpper();
-                        deliveryDgw.Rows[j].Cells[8].Value = orderDetail[j].BoughtDate;
-                        deliveryDgw.Rows[j].Cells[9].Value = orderDetail[j].DeliveryNo;
-                        deliveryDgw.Rows[j].Cells[10].Value = Status.status[orderDetail[j].Status].ToUpper();
+                        deliveryDgw.Rows[j].Cells[0].Value = _orderDetail[j].Id;
+                        deliveryDgw.Rows[j].Cells[1].Value = _orderDetail[j].ProductId;
+                        deliveryDgw.Rows[j].Cells[2].Value = _orderDetail[j].ProductName.ToUpper();
+                        deliveryDgw.Rows[j].Cells[3].Value = _orderDetail[j].Price;
+                        deliveryDgw.Rows[j].Cells[4].Value = _orderDetail[j].CustomerName.ToUpper();
+                        deliveryDgw.Rows[j].Cells[5].Value = Cities.cities[_orderDetail[j].DeliveryCity].ToUpper();
+                        deliveryDgw.Rows[j].Cells[6].Value = _orderDetail[j].DeliveryDistrict.ToUpper();
+                        deliveryDgw.Rows[j].Cells[7].Value = _orderDetail[j].DeliveryAddress.ToUpper();
+                        deliveryDgw.Rows[j].Cells[8].Value = _orderDetail[j].BoughtDate;
+                        deliveryDgw.Rows[j].Cells[9].Value = _orderDetail[j].DeliveryNo;
+                        deliveryDgw.Rows[j].Cells[10].Value = Status.status[_orderDetail[j].Status].ToUpper();
                     }
                 }
 
@@ -111,16 +111,16 @@ namespace FMSWindows.UserControls.Pending_Order
             try
             {
 
-                orderDal = (IOrder)Program.ServiceProvider.GetService(typeof(IOrder));
+                _orderDal = (IOrder)Program.ServiceProvider.GetService(typeof(IOrder));
 
-                var response = await orderDal.GetUserOrders();
+                var response = await _orderDal.GetUserOrders();
 
-                orderDetail = new List<OrderDetail>();
+                _orderDetail = new List<OrderDetail>();
 
 
-                orderDetail = response.Data.Where(o => o.Status == 5).Where(o => o.Id.ToString().Contains(siticoneTextBox1.Text) || o.ProductId.ToString().Contains(siticoneTextBox1.Text)).ToList();
+                _orderDetail = response.Data.Where(o => o.Status == 5).Where(o => o.Id.ToString().Contains(siticoneTextBox1.Text) || o.ProductId.ToString().Contains(siticoneTextBox1.Text)).ToList();
 
-                if (orderDetail.Count <= 0)
+                if (_orderDetail.Count <= 0)
                 {
                     return;
                 }
@@ -138,22 +138,22 @@ namespace FMSWindows.UserControls.Pending_Order
                 deliveryDgw.Columns.Add("DeliveryNo", "Delivery No");
                 deliveryDgw.Columns.Add("Status", "Status");
 
-                deliveryDgw.Rows.Add(orderDetail.Count);
-                for (int i = 0; i < orderDetail.Count; i++)
+                deliveryDgw.Rows.Add(_orderDetail.Count);
+                for (int i = 0; i < _orderDetail.Count; i++)
                 {
                     for (int j = 0; j < deliveryDgw.Rows.Count; j++)
                     {
-                        deliveryDgw.Rows[j].Cells[0].Value = orderDetail[j].Id;
-                        deliveryDgw.Rows[j].Cells[1].Value = orderDetail[j].ProductId;
-                        deliveryDgw.Rows[j].Cells[2].Value = orderDetail[j].ProductName.ToUpper();
-                        deliveryDgw.Rows[j].Cells[3].Value = orderDetail[j].Price;
-                        deliveryDgw.Rows[j].Cells[4].Value = orderDetail[j].CustomerName.ToUpper();
-                        deliveryDgw.Rows[j].Cells[5].Value = Cities.cities[orderDetail[j].DeliveryCity].ToUpper();
-                        deliveryDgw.Rows[j].Cells[6].Value = orderDetail[j].DeliveryDistrict.ToUpper();
-                        deliveryDgw.Rows[j].Cells[7].Value = orderDetail[j].DeliveryAddress.ToUpper();
-                        deliveryDgw.Rows[j].Cells[8].Value = orderDetail[j].BoughtDate;
-                        deliveryDgw.Rows[j].Cells[9].Value = orderDetail[j].DeliveryNo;
-                        deliveryDgw.Rows[j].Cells[10].Value = Status.status[orderDetail[j].Status].ToUpper();
+                        deliveryDgw.Rows[j].Cells[0].Value = _orderDetail[j].Id;
+                        deliveryDgw.Rows[j].Cells[1].Value = _orderDetail[j].ProductId;
+                        deliveryDgw.Rows[j].Cells[2].Value = _orderDetail[j].ProductName.ToUpper();
+                        deliveryDgw.Rows[j].Cells[3].Value = _orderDetail[j].Price;
+                        deliveryDgw.Rows[j].Cells[4].Value = _orderDetail[j].CustomerName.ToUpper();
+                        deliveryDgw.Rows[j].Cells[5].Value = Cities.cities[_orderDetail[j].DeliveryCity].ToUpper();
+                        deliveryDgw.Rows[j].Cells[6].Value = _orderDetail[j].DeliveryDistrict.ToUpper();
+                        deliveryDgw.Rows[j].Cells[7].Value = _orderDetail[j].DeliveryAddress.ToUpper();
+                        deliveryDgw.Rows[j].Cells[8].Value = _orderDetail[j].BoughtDate;
+                        deliveryDgw.Rows[j].Cells[9].Value = _orderDetail[j].DeliveryNo;
+                        deliveryDgw.Rows[j].Cells[10].Value = Status.status[_orderDetail[j].Status].ToUpper();
                     }
                 }
 

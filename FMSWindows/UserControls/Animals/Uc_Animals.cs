@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FMSWindows.UserControls.Animals.Sub_Animals;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,9 +18,55 @@ namespace FMSWindows.UserControls.Animals
             InitializeComponent();
         }
 
-        private void siticoneCustomGradientPanel2_Paint(object sender, PaintEventArgs e)
+        private void cowPanel_Click(object sender, EventArgs e)
+        {
+            Uc_Cows.Instance.BringToFront();
+        }
+
+        private void sheepPanel_Click(object sender, EventArgs e)
+        {
+            Uc_Sheeps.Instance.BringToFront();
+        }
+
+        private void calvesPanel_Click(object sender, EventArgs e)
+        {
+            Uc_Calves.Instance.BringToFront();
+        }
+
+        private void bullPanel_Click(object sender, EventArgs e)
+        {
+            Uc_Bulls.Instance.BringToFront();
+        }
+
+        private void consumablesPanel_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void cowsChildPanel_Click(object sender, EventArgs e)
+        {
+            Uc_Cows.Instance.BringToFront();
+        }
+
+        private void sheepsChildPanel_Click(object sender, EventArgs e)
+        {
+            Uc_Sheeps.Instance.BringToFront();
+
+        }
+
+        private void calvesChildPanel_Click(object sender, EventArgs e)
+        {
+            Uc_Calves.Instance.BringToFront();
+
+        }
+
+        private void bullsChildPanel_Click(object sender, EventArgs e)
+        {
+            Uc_Bulls.Instance.BringToFront();
+
+        }
+
+
     }
 }
+
