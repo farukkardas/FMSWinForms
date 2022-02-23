@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using FMSWindows.Models;
 using Newtonsoft.Json;
 using FMSWindows.Services.Abstract;
+using System.Windows.Forms;
+
 namespace FMSWindows.Services
 {
     public class UserService : IUser
@@ -15,7 +17,6 @@ namespace FMSWindows.Services
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",Program.Jwt);
             httpClient.DefaultRequestHeaders.Add("securityKey",Program.SecurityKey);
             httpClient.DefaultRequestHeaders.Add("id",Program.Id.ToString());
-
             var post = await httpClient.GetAsync("http://localhost:5000/api/users/getuserdetails");
 
             var response = post.Content.ReadAsStringAsync();

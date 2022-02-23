@@ -10,8 +10,7 @@ namespace FMSWindows.Models
     {
         public string Token { get; set; }
         public DateTime Expiration { get; set; }
-        public int Id { get; set; }
         public string SecurityKey { get; set; }
-        public List<OperationClaim> OperationClaims { get; set; }
+      
     }
 }

@@ -42,7 +42,6 @@
             this.siticonePictureBox1 = new Siticone.Desktop.UI.WinForms.SiticonePictureBox();
             this.siticoneButton2 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneButton1 = new Siticone.Desktop.UI.WinForms.SiticoneButton();
-            this.consumablesPanelButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.salesDataButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.pendingOrdersButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.listProductButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -134,7 +133,6 @@
             this.siticonePanel1.Controls.Add(this.siticonePictureBox1);
             this.siticonePanel1.Controls.Add(this.siticoneButton2);
             this.siticonePanel1.Controls.Add(this.siticoneButton1);
-            this.siticonePanel1.Controls.Add(this.consumablesPanelButton);
             this.siticonePanel1.Controls.Add(this.salesDataButton);
             this.siticonePanel1.Controls.Add(this.pendingOrdersButton);
             this.siticonePanel1.Controls.Add(this.listProductButton);
@@ -168,7 +166,7 @@
             this.siticoneButton5.HoverState.Parent = this.siticoneButton5;
             this.siticoneButton5.Image = ((System.Drawing.Image)(resources.GetObject("siticoneButton5.Image")));
             this.siticoneButton5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.siticoneButton5.Location = new System.Drawing.Point(0, 356);
+            this.siticoneButton5.Location = new System.Drawing.Point(0, 316);
             this.siticoneButton5.Name = "siticoneButton5";
             this.siticoneButton5.ShadowDecoration.Parent = this.siticoneButton5;
             this.siticoneButton5.Size = new System.Drawing.Size(200, 45);
@@ -198,7 +196,7 @@
             this.approvedOrdersButton.HoverState.Parent = this.approvedOrdersButton;
             this.approvedOrdersButton.Image = ((System.Drawing.Image)(resources.GetObject("approvedOrdersButton.Image")));
             this.approvedOrdersButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.approvedOrdersButton.Location = new System.Drawing.Point(0, 313);
+            this.approvedOrdersButton.Location = new System.Drawing.Point(0, 273);
             this.approvedOrdersButton.Name = "approvedOrdersButton";
             this.approvedOrdersButton.ShadowDecoration.Parent = this.approvedOrdersButton;
             this.approvedOrdersButton.Size = new System.Drawing.Size(200, 45);
@@ -310,7 +308,7 @@
             this.siticoneButton1.HoverState.Parent = this.siticoneButton1;
             this.siticoneButton1.Image = ((System.Drawing.Image)(resources.GetObject("siticoneButton1.Image")));
             this.siticoneButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.siticoneButton1.Location = new System.Drawing.Point(0, 484);
+            this.siticoneButton1.Location = new System.Drawing.Point(0, 444);
             this.siticoneButton1.Name = "siticoneButton1";
             this.siticoneButton1.ShadowDecoration.Parent = this.siticoneButton1;
             this.siticoneButton1.Size = new System.Drawing.Size(200, 45);
@@ -318,36 +316,6 @@
             this.siticoneButton1.Text = "Customers";
             this.siticoneButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.siticoneButton1.Click += new System.EventHandler(this.siticoneButton1_Click);
-            // 
-            // consumablesPanelButton
-            // 
-            this.consumablesPanelButton.Animated = true;
-            this.consumablesPanelButton.BackColor = System.Drawing.Color.White;
-            this.consumablesPanelButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("consumablesPanelButton.BackgroundImage")));
-            this.consumablesPanelButton.BorderColor = System.Drawing.Color.White;
-            this.consumablesPanelButton.ButtonMode = Siticone.Desktop.UI.WinForms.Enums.ButtonMode.RadioButton;
-            this.consumablesPanelButton.CheckedState.CustomBorderColor = System.Drawing.Color.Black;
-            this.consumablesPanelButton.CheckedState.Parent = this.consumablesPanelButton;
-            this.consumablesPanelButton.CustomBorderThickness = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.consumablesPanelButton.CustomImages.Parent = this.consumablesPanelButton;
-            this.consumablesPanelButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.consumablesPanelButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.consumablesPanelButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.consumablesPanelButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.consumablesPanelButton.DisabledState.Parent = this.consumablesPanelButton;
-            this.consumablesPanelButton.FillColor = System.Drawing.Color.White;
-            this.consumablesPanelButton.Font = new System.Drawing.Font("Trebuchet MS", 12F);
-            this.consumablesPanelButton.ForeColor = System.Drawing.Color.Black;
-            this.consumablesPanelButton.HoverState.Parent = this.consumablesPanelButton;
-            this.consumablesPanelButton.Image = ((System.Drawing.Image)(resources.GetObject("consumablesPanelButton.Image")));
-            this.consumablesPanelButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.consumablesPanelButton.Location = new System.Drawing.Point(0, 230);
-            this.consumablesPanelButton.Name = "consumablesPanelButton";
-            this.consumablesPanelButton.ShadowDecoration.Parent = this.consumablesPanelButton;
-            this.consumablesPanelButton.Size = new System.Drawing.Size(200, 45);
-            this.consumablesPanelButton.TabIndex = 4;
-            this.consumablesPanelButton.Text = "Consumables";
-            this.consumablesPanelButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // salesDataButton
             // 
@@ -370,7 +338,7 @@
             this.salesDataButton.HoverState.Parent = this.salesDataButton;
             this.salesDataButton.Image = ((System.Drawing.Image)(resources.GetObject("salesDataButton.Image")));
             this.salesDataButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.salesDataButton.Location = new System.Drawing.Point(0, 443);
+            this.salesDataButton.Location = new System.Drawing.Point(0, 403);
             this.salesDataButton.Name = "salesDataButton";
             this.salesDataButton.ShadowDecoration.Parent = this.salesDataButton;
             this.salesDataButton.Size = new System.Drawing.Size(200, 45);
@@ -400,7 +368,7 @@
             this.pendingOrdersButton.HoverState.Parent = this.pendingOrdersButton;
             this.pendingOrdersButton.Image = ((System.Drawing.Image)(resources.GetObject("pendingOrdersButton.Image")));
             this.pendingOrdersButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.pendingOrdersButton.Location = new System.Drawing.Point(0, 272);
+            this.pendingOrdersButton.Location = new System.Drawing.Point(0, 232);
             this.pendingOrdersButton.Name = "pendingOrdersButton";
             this.pendingOrdersButton.ShadowDecoration.Parent = this.pendingOrdersButton;
             this.pendingOrdersButton.Size = new System.Drawing.Size(200, 45);
@@ -430,7 +398,7 @@
             this.listProductButton.HoverState.Parent = this.listProductButton;
             this.listProductButton.Image = ((System.Drawing.Image)(resources.GetObject("listProductButton.Image")));
             this.listProductButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.listProductButton.Location = new System.Drawing.Point(0, 401);
+            this.listProductButton.Location = new System.Drawing.Point(0, 361);
             this.listProductButton.Name = "listProductButton";
             this.listProductButton.ShadowDecoration.Parent = this.listProductButton;
             this.listProductButton.Size = new System.Drawing.Size(200, 45);
@@ -684,7 +652,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton animalsPanelButton;
         private Siticone.Desktop.UI.WinForms.SiticoneButton dashboardPanelButton;
         private Siticone.Desktop.UI.WinForms.SiticoneButton salesDataButton;
-        private Siticone.Desktop.UI.WinForms.SiticoneButton consumablesPanelButton;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton2;
         private Siticone.Desktop.UI.WinForms.SiticoneButton siticoneButton1;
         private Siticone.Desktop.UI.WinForms.SiticonePictureBox siticonePictureBox1;

@@ -1,4 +1,5 @@
-﻿using FMSWindows.Services;
+﻿using FMSWindows.Models;
+using FMSWindows.Services;
 using FMSWindows.Services.Abstract;
 using FMSWindows.UserControls.Dashboard;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,8 +18,10 @@ namespace FMSWindows
         public static string Jwt;
         public static string SecurityKey;
         public static int Id;
+        public static string Role;
 
         public static IServiceProvider ServiceProvider { get; set; }
+ 
 
         static void ConfigureServices()
         {

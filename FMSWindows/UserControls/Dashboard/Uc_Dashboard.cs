@@ -34,7 +34,6 @@ namespace FMSWindows.UserControls.Dashboard
             {
                 _userService = (IUser) Program.ServiceProvider.GetService(typeof(IUser));
                 var response = await _userService.GetUserDetails();
-
                 saleAmountLabel.Text = response.Data.SuccessfulSales.ToString() + @" Piece";
                 canceledLabel.Text = response.Data.CanceledOrders.ToString() + @" Piece";
                 pendingLabel.Text = response.Data.PendingOrders.ToString() + @" Piece";

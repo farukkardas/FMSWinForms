@@ -41,7 +41,7 @@ namespace FMSWindows.UserControls
         private async void siticoneButton1_Click(object sender, EventArgs e)
         {
             siticoneButton1.Enabled = false;
-            _authService = (IAuth) Program.ServiceProvider.GetService(typeof(IAuth));
+            _authService = (IAuth)Program.ServiceProvider.GetService(typeof(IAuth));
             if (ValidateFields())
             {
                 SiticoneMessageDialog siticoneMessageDialog = new SiticoneMessageDialog();
@@ -52,29 +52,25 @@ namespace FMSWindows.UserControls
 
                     if (response.Success)
                     {
-                        foreach (var operationClaim in response.Data.OperationClaims)
+
+                        if (Program.Role.Contains("admin") || Program.Role.Contains("user"))
                         {
-                            if (operationClaim.Name.Contains("admin") || operationClaim.Name.Contains("user"))
-                            {
-                                siticoneMessageDialog.Style = MessageDialogStyle.Light;
-                                SaveCredentials();
-                                siticoneMessageDialog.Show(response.Message, @"Success");
-                                Program.Jwt = response.Data.Token;
-                                Program.Id = response.Data.Id;
-                                Program.SecurityKey = response.Data.SecurityKey;
-                                siticoneButton1.Enabled = true;
-                                Form1.Instance.Hide();
-                                DashboardForm dashboardForm = new DashboardForm();
-                                DashboardForm.Instance.Show();
-                            }
-                            else
-                            {
-                                siticoneMessageDialog.Show(@"You don't have permissions to login admin panel!",
-                                    $"Error");
-                                siticoneButton1.Enabled = true;
-                                return;
-                            }
+                            siticoneMessageDialog.Style = MessageDialogStyle.Light;
+                            SaveCredentials();
+                            siticoneMessageDialog.Show(response.Message, @"Success");
+                            siticoneButton1.Enabled = true;
+                            Form1.Instance.Hide();
+                            DashboardForm dashboardForm = new DashboardForm();
+                            DashboardForm.Instance.Show();
                         }
+                        else
+                        {
+                            siticoneMessageDialog.Show(@"You don't have permissions to login admin panel!",
+                                $"Error");
+                            siticoneButton1.Enabled = true;
+                            return;
+                        }
+
                     }
                     else if (!response.Success)
                     {
@@ -97,7 +93,7 @@ namespace FMSWindows.UserControls
                 {
                     siticoneMessageDialog.Style = MessageDialogStyle.Default;
                     siticoneMessageDialog.Icon = MessageDialogIcon.Error;
-                    siticoneMessageDialog.Show(@"Error when trying to connect server!", @"Error");
+                    siticoneMessageDialog.Show($"Error when trying to connect server!", $"Error ");
                     siticoneButton1.Enabled = true;
                     return;
                 }
@@ -111,7 +107,8 @@ namespace FMSWindows.UserControls
                 var path = Directory.GetCurrentDirectory() + "/credentials.txt";
                 LoginModel loginModel = new LoginModel
                 {
-                    Email = siticoneTextBox1.Text, Password = siticoneTextBox2.Text
+                    Email = siticoneTextBox1.Text,
+                    Password = siticoneTextBox2.Text
                 };
                 var json = JsonConvert.SerializeObject(loginModel);
 

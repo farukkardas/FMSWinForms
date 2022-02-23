@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
+﻿using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using FMSWindows.Models;
 using FMSWindows.Models.Auth;
 using FMSWindows.Services.Abstract;
 using Newtonsoft.Json;
+using System.IdentityModel.Tokens.Jwt;
+using System;
+using System.Windows.Forms;
+using System.Linq;
 
 namespace FMSWindows.Services
 {
@@ -46,13 +42,34 @@ namespace FMSWindows.Services
 
                 var deserializeContent =
                     JsonConvert.DeserializeObject<SingleResponseModel<TokenModel>>(responseContent);
+               
+               
+                var handler = new JwtSecurityTokenHandler();
+                var decodedValue = handler.ReadJwtToken(deserializeContent.Data.Token);
 
+           
+                foreach (var claims in decodedValue.Claims)
+                {
+                    if (claims.Type.Contains("claims/role"))
+                    {
+                        Program.Role = claims.Value;
+                    }
+
+                    if (claims.Type.Contains("nameidentifier"))
+                    {
+                        Program.Id = Convert.ToInt32(claims.Value);
+                    }
+
+                }
+
+                Program.Jwt = deserializeContent.Data.Token;
+                Program.SecurityKey = deserializeContent.Data.SecurityKey;
                 tokenModel.Data = deserializeContent.Data;
                 tokenModel.Message = deserializeContent.Message;
                 tokenModel.Success = deserializeContent.Success;
             }
 
-
+            
             return tokenModel;
         }
 
